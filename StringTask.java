@@ -1,222 +1,247 @@
+
 package stringprograms;
 import java.util.Scanner;
 public class StringTask{
 
-public void lengthOfString(String[] args){
-for(String a : args)
+public int lengthOfString(String[] args) 
 {
-int length = a.length();
-System.out.println("Length of the string: " + length);
-}
+int length= 0;
+for (String a : args)
+{
+length = a.length();
+
+}return length;
 }
 
-public void convertItIntoCharacterArray(String input){
-char[] character = input.toCharArray();
-System.out.println("Convert it into character Array");
-for (char characterarray:character){
-System.out.println(characterarray);
-}
-}
 
-public void penultimate(int occurrence,String input){
-try {
-if(input.length() >= occurrence){
-int abc=input.length()-occurrence;
-System.out.println("from the given position its contain :"+input.charAt(abc));
+public char[] convertItIntoCharacterArray(String character){
+if (character != null) {
+char[] ccharacter = character.toCharArray();
+return ccharacter;
 }
 else{
-System.out.println("Not able to find penultimate");
+return null;
 }
-} catch (Exception e) {
-System.out.println(e.getMessage());
+
+} 
+
+public String penultimate(int occurrence,String character){
+if(character != null){
+if(character.length() >= occurrence){
+int index=character.length()-occurrence;
+return "From the given position, it contains:" +character.charAt(index);
+}else{
+return "Not able to find penultimate.";
+ }
+} else {
+return "Error : Input string is null.";
 }
 }
 
-public void numberOfOccurrences(String input,char character){
-try{
+public int numberOfOccurrences(String occurrences,char character){
 int count=0;
-for(int i=0;i<input.length();i++)
+
+if(occurrences != null){
+for(int i=0;i<occurrences.length();i++)
 {
-if(input.charAt(i)==character){
-count++;
+	if(occurrences.charAt(i)==character){
+	count++;
+	}
 }
-}
-System.out.println("Number of occurrences :" +count);
-} catch (Exception e) {
-System.out.println(e.getMessage());
-}
+return count;
+} else{
+return -1;
 }
 
-public void greatestPosition(String input,char character){
-try{
+}
+
+
+public int greatestPosition(String greatest,char character){
+
 int maxPosition = 0;
-for (int i = 0; i < input.length(); i++) {
-if (input.charAt(i) == character) {
+for (int i = 0; i < greatest.length(); i++) {
+if (greatest.charAt(i) == character) {
 maxPosition=i+1;
 }
 }
 if(maxPosition>0)
 {
-System.out.println("The greatest position is "+maxPosition);
-}
-else
-{
-System.out.println("No match found");
-}}catch(Exception e) {
-System.out.println(e.getMessage());
-}
-}
-
-public void lastFiveCharacters(String input,int position){
-if(input.length() >= position){
-String result=input.substring(input.length()- position,input.length());
-System.out.print("The last "+position+" characters :"+result);
+return maxPosition;
 }else{
-System.out.println("Enter a valid input");
+return -1;
 }
 }
 
-public void firstThreeCharacters(String input,int position) {
-if (input.length() >= position) {
-String result = input.substring(0, position);
-System.out.println("First " +position+" characters: " + result);
+public String lastFiveCharacters(String character,int position){
+if(character != null){
+if(character.length() >= position){
+String result=character.substring(character.length()- position,character.length());
+return "The last Characters "+ result;
+}else{
+return "Enter a valid input";
+}
 } else {
-System.out.println("String is too short to find first three characters");
+return "Error : Input string is null.";
 }
 }
 
-public void replaceFirstThreeCharacters(String input,String replace){
-try{
-if(input.length()>=replace.length())
+public String firstThreeCharacters(String character,int position) {
+if(character != null){
+if (character.length() >= position) {
+String result = character.substring(0, position);
+return "From the first character :"+result;
+} else {
+return "String is too short to find first three characters";
+}
+} else {
+return"Error : Input string is null.";
+}
+}
+
+public String replaceFirstThreeCharacters(String character,String replace){
+if(character != null){
+if(character.length()>=replace.length())
 {
- String result=input.substring(0,replace.length());
- System.out.println("Replaced the string for the characters :"+input.replace(result,replace));
+String result=character.substring(0,replace.length());
+return "Replaced the string for the characters :"+character.replace(result,replace);
 }
 else{
-System.out.println("enter more character");
+return "enter more character";
 }
-}
-catch(Exception e) {
-System.out.println(e.getMessage());
+} else {
+return "Error : Input string is null.";
 }
 }
 
-public void startsWith(String input,String start){
-try{
-if(input.length() >= start.length()){
-String result=input.substring(0,start.length());
+public String startsWith(String character,String start){
+if(character != null){
+if(character.length() >= start.length()){
+String result=character.substring(0,start.length());
 if(result.equals(start))
 {
-System.out.println("starts with "+start);
+return "Starts with "+start;
 }
 else
 {
-System.out.println(" starts with other letters");
+return "Starts with other letters";
 }
 }else{
-System.out.println("Please enter a valid input");
+return "Please enter a valid input";
 }
-}
-catch(Exception e) {
-System.out.println(e.getMessage());
+} else {
+return "Error : Input string is null.";
 }
 }
 
-public void endsWithLe(String input,String end){
-try{
-if(input.length() >= end.length()){
-String result=input.substring(input.length()- end.length(),input.length());
+public String endsWithLe(String character,String end){
+if(character != null){
+if(character.length() >= end.length()){
+String result=character.substring(character.length()- end.length(),character.length());
 if(result.equals(end))
 {
-System.out.println("ends with "+end);
+return "Ends with "+end;
 }
 else
 {
-System.out.println("ends with other letters");
+return "Ends with other letters";
 }
 }else{
-System.out.println("Please enter a valid input");
+return "Please enter a valid input";
 }
-}
-catch(Exception e) {
-System.out.println(e.getMessage());
-}
-}
-
-public void lowercaseToUppercase(String input){
-try{
-String result=input.toUpperCase();
-System.out.println("Convert all strings to uppercase :" +result);
-}
-catch(Exception e) {
-System.out.println(e.getMessage());
+} else {
+return "Error : Input string is null.";
 }
 }
 
-public void uppercaseToLowercase(String input){
-try{
-String result=input.toLowerCase();
-System.out.println("Convert all strings to lowercase :"+result);
-}
-catch(Exception e) {
-System.out.println(e.getMessage());
+public String lowercaseToUppercase(String character){
+if(character != null){
+String result=character.toUpperCase();
+return "Convert all strings to uppercase :" +result;
+} else {
+return "Error : Input string is null.";
 }
 }
 
-public void reverseString(String input){
-try{
+public String uppercaseToLowercase(String character){
+if(character != null){
+String result=character.toLowerCase();
+return "Convert all strings to lowercase :"+result ;
+} else {
+return "Error : Input string is null.";
+}
+}
+
+public String reverseString(String character){
+if(character != null){
 String reverse = " ";
-for(int i = 0; i < input.length(); i++)
+for(int i = 0; i < character.length(); i++)
 {
-reverse = input.charAt(i) + reverse;
+reverse = character.charAt(i) + reverse;
 }
-System.out.println("reversed string :"+reverse);
-}
-catch(Exception e) {
-System.out.println(e.getMessage());
+return "Reversed string :"+reverse;
+} else {
+return "Error : Input string is null.";
 }
 }
 
-public void acceptMultipleStrings(String[] input,Scanner scanner){
-for (int i = 0; i <input.length; i++)
+public String acceptMultipleStrings(String[] character,Scanner scanner)
 {
-input[i] = scanner.nextLine();
+if (scanner == null) 
+{
+return "Scanner object is null.";
+}else
+{
+for (int i = 0; i <character.length; i++)
+{
+character[i] = scanner.nextLine();
 } 
-System.out.println("You have entered: ");  
-for(String str: input)  
- {  
-System.out.println(str);  
+String output = "You have entered: ";
+for(String str : character)  
+{  
+output = output+"\n"+str;
+}
+return output;
 }
 }
 
-public void concatenateIndividualStrings(int input,Scanner scanner){
+
+public String concatenateIndividualStrings(int input,Scanner scanner){
+if (scanner == null) {
+return "Scanner object is null.";
+}else{
 String print1="";
 for (int i = 0; i <input; i++)   
 {  
 print1=print1.concat(scanner.nextLine());
 } 
-System.out.println("concatenate strings :" +print1);
-}
+return "concatenate strings :" +print1;
+}}
 
-public void stringToArray(String input){
-try{
-String[] words = input.split("\\s+");
-System.out.print("Enclose each string :");
-System.out.print("{");
+
+public String stringToArray(String character){
+if(character != null){
+String[] words = character.split("\\s+");
+String words_print= "Enclose each string : {";
 for (int i = 0; i < words.length; i++) {
-if (i > 0) {
-System.out.print(",");}
-System.out.print("\"" + words[i] + "\"");}
-System.out.println("}");
+if (i > 0)
+ {
+words_print= words_print+",";
 }
-catch(Exception e) {
-System.out.println(e.getMessage());
+words_print= words_print+ "\"" + words[i] + "\"";
+}
+words_print= words_print+"}";
+return words_print;
+} else {
+return "Error : Input string is null.";
 }
 }
 
-public void mergeStrings(int input,Scanner scanner,String symbol){
+public String mergeStrings(int input,Scanner scanner,String symbol){
+if (scanner == null) {
+return "Scanner object is null.";
+}else{
 String print="";
- for (int i = 0; i <input; i++)   
+for (int i = 0; i <input; i++)   
 {  
 System.out.print("string "+ (i+1) +" : " );
 if(i==0){
@@ -226,39 +251,22 @@ else
 {
 print=print+symbol+ scanner.nextLine();
 }
-} 
-System.out.println(print);
+}return print; 
+}}
 
-}
-
-public void checkStringEquality(String input, String check){
-try{
-System.out.println(input.equals(check));
-}
-catch(Exception e) {
-System.out.println(e.getMessage());
-}
+public boolean checkStringEquality(String input, String check){
+return input.equals(check);
 }
 
-
-public void checkStringEqualityIgnoreCase(String input, String IgnoreCase){
-try{
-System.out.println(input.equalsIgnoreCase(IgnoreCase));
-}
-catch(Exception e) {
-System.out.println(e.getMessage());
-}
+public boolean checkStringEqualityIgnoreCase(String character, String IgnoreCase){
+return character.equalsIgnoreCase(IgnoreCase);
 }
 
-public void trimString(String input){
-try{
-System.out.println(input.trim());
-}
-catch(Exception e) {
-System.out.println(e.getMessage());
-}
+public String trimString(String character){
+if(character != null){
+return character.trim();
+} else {
+return "Error : Input string is null.";
 }
 }
-
-
-
+}
