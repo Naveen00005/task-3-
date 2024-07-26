@@ -13,6 +13,15 @@ System.out.println("Length of the strings: " + length);
 System.out.println(e.getMessage());
 }
 
+ try {
+System.out.println("\nEnter a String to find the length : ");
+String length = scanner.nextLine();
+int lengths = runner.lengthOfString1(length);
+System.out.println("Length of the strings: " + lengths);
+} catch (Exception e) {
+System.out.println(e.getMessage());
+}
+
 System.out.println("\nEnter a String to convert it into character Array:");
 String string = scanner.nextLine();
 try {
