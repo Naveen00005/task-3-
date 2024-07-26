@@ -2,26 +2,12 @@ package stringprograms;
 import java.util.Scanner;
 public class StringTask{
 
-public int lengthOfString(String[] args) throws CustomExceptions {
-        if (args == null) {
+public int lengthOfString(String slength) throws CustomExceptions {
+        if (slength == null) {
             throw new CustomExceptions("Input array is null.");
         }
-        int totalLength = 0;
-        for (String a : args) {
-            if (a != null) {
-                totalLength += a.length();
-            }
-        }
+        int totalLength = slength.length();
      return totalLength;
-}
-
-public int lengthOfString1(String input)throws CustomExceptions{
-if (input == null) {
-            throw new CustomExceptions("Input array is null.");
-		}	
-	int totalLength = 0;
-                totalLength = input.length();
-        return totalLength;
 }
 	
 public char[] convertItIntoCharacterArray(String character) throws CustomExceptions {
