@@ -30,8 +30,7 @@ public char[] convertItIntoCharacterArray(String character) throws CustomExcepti
         }
         return character.toCharArray();
 }
-
-
+	
 public String penultimate(int occurrence, String character) throws CustomExceptions {
         if (character == null || character.length() == 0) {          
             throw new CustomExceptions("Input string is null.");
