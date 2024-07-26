@@ -1,24 +1,19 @@
 import java.util.Scanner;
 import stringprograms.StringTask;
 import stringprograms.CustomExceptions;
+import java.io.*;
 class Runner{
 public static void main(String args[]){
 Scanner scanner = new Scanner(System.in);
 StringTask runner = new StringTask();
 
+BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));        
 try {
-int length = runner.lengthOfString(args);
-System.out.println("Length of the strings: " + length);
-} catch (Exception e) {
-System.out.println(e.getMessage());
-}
-
- try {
-System.out.println("\nEnter a String to find the length : ");
-String length = scanner.nextLine();
-int lengths = runner.lengthOfString1(length);
-System.out.println("Length of the strings: " + lengths);
-} catch (Exception e) {
+System.out.print("Enter a string: ");
+String inputString = reader.readLine();
+int length = runner.lengthOfString(inputString);
+System.out.println("The length of the entered string is: " + length);
+}catch (Exception e) {
 System.out.println(e.getMessage());
 }
 
