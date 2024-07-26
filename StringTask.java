@@ -57,7 +57,6 @@ public int numberOfOccurrences(String occurrences,char character)throws CustomEx
 	return count;
 }
 
-
 public int greatestPosition(String greatest,char character) throws CustomExceptions{
 	if(greatest == null) {
 		throw new CustomExceptions("Input string is null.");
@@ -202,7 +201,6 @@ return output;
 
 }
 
-
 public String concatenateIndividualStrings(int input,Scanner scanner)throws CustomExceptions{
 if (scanner == null) {
 throw new CustomExceptions("Input string is null.");
@@ -213,8 +211,8 @@ for (int i = 0; i <input; i++)
 print1=print1.concat(scanner.nextLine());
 } 
 return "concatenate strings :" +print1;
-}}
-
+}
+}
 
 public String stringToArray(String character)throws CustomExceptions{
 if(character == null){
@@ -248,8 +246,8 @@ else
 {
 print=print+symbol+ scanner.nextLine();
 }
-}return print; 
-
+}
+return print; 
 }
 
 public boolean checkStringEquality(String input, String check)throws CustomExceptions{
@@ -271,6 +269,5 @@ if (character == null) {
 throw new CustomExceptions("Input string is null.");
 }
 return character.trim();
-
 }
 }
