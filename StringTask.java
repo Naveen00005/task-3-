@@ -15,6 +15,15 @@ public int lengthOfString(String[] args) throws CustomExceptions {
      return totalLength;
 }
 
+public int lengthOfString1(String input)throws CustomExceptions{
+if (input == null) {
+            throw new CustomExceptions("Input array is null.");
+		}	
+	int totalLength = 0;
+                totalLength = input.length();
+        return totalLength;
+}
+	
 public char[] convertItIntoCharacterArray(String character) throws CustomExceptions {
         if (character == null) {
             throw new CustomExceptions("Input string is null.");
