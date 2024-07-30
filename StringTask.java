@@ -2,6 +2,8 @@ package stringprograms;
 import java.util.Scanner;
 public class StringTask{
 
+
+
 public int lengthOfString(String slength) throws CustomExceptions {
         if (slength == null) {
             throw new CustomExceptions("Input array is null.");
@@ -9,22 +11,26 @@ public int lengthOfString(String slength) throws CustomExceptions {
         int totalLength = slength.length();
      return totalLength;
 }
-	
+
 public char[] convertItIntoCharacterArray(String character) throws CustomExceptions {
         if (character == null) {
             throw new CustomExceptions("Input string is null.");
         }
         return character.toCharArray();
 }
-	
+
+
 public String penultimate(int occurrence, String character) throws CustomExceptions {
-        if (character == null || character.length() == 0) {          
+       
+	if (character == null ) {          
             throw new CustomExceptions("Input string is null.");
         }
-        if (character.length() < occurrence) {
+	int chara = lengthOfString(character);
+	
+        if (chara < occurrence) {
             throw new CustomExceptions("Not able to find penultimate: occurrence exceeds string length.");
         }
-        int index = character.length() - occurrence;
+        int index = chara - occurrence;
         return "From the given position, it contains: " + character.charAt(index);
 }
 
@@ -34,7 +40,7 @@ public int numberOfOccurrences(String occurrences,char character)throws CustomEx
 	if(occurrences == null) {
 		throw new CustomExceptions("Input string is null.");
 	} 
-	int length = occurrences.length();
+	int length = lengthOfString(occurrences);
 	for(int i=0;i<length;i++) {
 		if(occurrences.charAt(i) == character){
 			count++;
@@ -43,13 +49,14 @@ public int numberOfOccurrences(String occurrences,char character)throws CustomEx
 	return count;
 }
 
+
 public int greatestPosition(String greatest,char character) throws CustomExceptions{
 	if(greatest == null) {
 		throw new CustomExceptions("Input string is null.");
 	}
 		
 	int maxPosition = 0;
-	int length = greatest.length();
+	int length = lengthOfString(greatest);
 	for (int i = 0; i < length; i++) {
 		if (greatest.charAt(i) == character) {
 			maxPosition = i + 1;
@@ -66,13 +73,13 @@ public String lastFiveCharacters(String character,int position) throws CustomExc
 	if(character == null){
 		throw new CustomExceptions("Input string is null.");
 	}
-
-	if(character.length() < position) {
+	int chara = lengthOfString(character);
+	if(chara< position) {
 		throw new CustomExceptions ("Enter a valid input");
 	}
 
-	String result=character.substring(character.length()- position,character.length());
-	return "The last Characters "+ result;5
+	String result=character.substring(chara- position,chara);
+	return "The last "+position+" Characters "+ result;
 
 }
 
@@ -80,9 +87,9 @@ public String firstThreeCharacters(String character,int position) throws CustomE
 if(character == null){
 throw new CustomExceptions("Input string is null.");
 }
-if (character.length() >= position) {
+if (lengthOfString(character) >= position) {
 String result = character.substring(0, position);
-return "From the first character :"+result;
+return "From the first "+position+" character :"+result;
 } else {
 throw new CustomExceptions ( "String is too short to find first three characters");
 }
@@ -92,9 +99,10 @@ public String replaceFirstThreeCharacters(String character,String replace)throws
 if(character == null){
 throw new CustomExceptions("Input string is null.");
 }
-if(character.length()>=replace.length())
+int number = lengthOfString(replace);
+if(lengthOfString(character)>=number)
 {
-String result=character.substring(0,replace.length());
+String result=character.substring(0,number);
 return "Replaced the string for the characters :"+character.replace(result,replace);
 }
 else{
@@ -107,8 +115,9 @@ if(character == null){
 throw new CustomExceptions("Input string is null.");
 }
 String output;
-if(character.length() >= start.length()){
-	String result=character.substring(0,start.length());
+int start_number = lengthOfString(start);
+if(lengthOfString(character) >= start_number){
+	String result=character.substring(0,start_number);
 	if(result.equals(start)) {
 		output = "Starts with "+start;
 	}
@@ -117,7 +126,7 @@ if(character.length() >= start.length()){
 	}
 }
 else{
-output = "Please enter a valid input";
+throw new CustomExceptions("Please enter a valid input");
 }
 return output;
 }
@@ -127,15 +136,17 @@ if(character == null){
 throw new CustomExceptions("Input string is null.");
 }
 String output;
-if(character.length() >= end.length()){
-String result=character.substring(character.length()- end.length(),character.length());
+int chara = lengthOfString(character);
+int end_num = lengthOfString(end);
+if(chara >= end_num){
+String result=character.substring(chara - end_num,chara);
 if(result.equals(end)) {
 output = "Ends with "+end;
 } else {
 output = "Ends with other letters";
 }
 }else{
-output ="Please enter a valid input";
+throw new CustomExceptions("Please enter a valid input");
 }
 return output;
 }
@@ -161,7 +172,7 @@ if(character == null){
 throw new CustomExceptions("Input string is null.");
 }
 String reverse = "";
-int length = character.length();
+int length = lengthOfString(character);
 for(int i = 0; i < length; i++)
 {
 reverse = character.charAt(i) + reverse;
@@ -187,6 +198,7 @@ return output;
 
 }
 
+
 public String concatenateIndividualStrings(int input,Scanner scanner)throws CustomExceptions{
 if (scanner == null) {
 throw new CustomExceptions("Input string is null.");
@@ -197,8 +209,8 @@ for (int i = 0; i <input; i++)
 print1=print1.concat(scanner.nextLine());
 } 
 return "concatenate strings :" +print1;
-}
-}
+}}
+
 
 public String stringToArray(String character)throws CustomExceptions{
 if(character == null){
@@ -232,8 +244,8 @@ else
 {
 print=print+symbol+ scanner.nextLine();
 }
-}
-return print; 
+}return print; 
+
 }
 
 public boolean checkStringEquality(String input, String check)throws CustomExceptions{
@@ -255,5 +267,6 @@ if (character == null) {
 throw new CustomExceptions("Input string is null.");
 }
 return character.trim();
+
 }
 }
