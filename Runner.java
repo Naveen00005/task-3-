@@ -6,7 +6,7 @@ class Runner{
 public static void main(String args[]){
 Scanner scanner = new Scanner(System.in);
 StringTask runner = new StringTask();
-
+ 
 BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));        
 try {
 System.out.println("Enter a string: ");
@@ -99,25 +99,32 @@ System.out.println("Replaced the string for the characters :"+ replaceCharacters
 System.out.println(e.getMessage());
 }
 
-
 System.out.println("\nEnter a String to check from starting");
 String ent = scanner.nextLine();
 System.out.print("Enter a String to check whether a String starts with : ");
 String ent1 = scanner.nextLine();
 try{
-String checkstring=runner.startsWith(ent,ent1);
-System.out.print("Starts with "+ checkstring);
+boolean checkstring=runner.startsWith(ent,ent1);
+if(checkstring == true){
+System.out.print("Starts with "+ ent1 +" = "+checkstring );
+}else{
+System.out.print("Starts with other letter = "+checkstring );
+}
 }catch(Exception e){
 System.out.println(e.getMessage());
 }
 
 System.out.println("\nEnter a String to check from last ");
-String le = scanner.nextLine();
+String end = scanner.nextLine();
 System.out.println("Enter a String to check whether a String ends with : ");
-String le1 = scanner.nextLine();
+String check = scanner.nextLine();
 try{
-String checkcharacter=runner.endsWithLe(le,le1);
-System.out.print( "Ends with "+ checkcharacter);
+boolean checkcharacter = runner.endsWith(end,check);
+if( checkcharacter == true){
+System.out.print( "Ends with "+check+ " = "+ checkcharacter);
+}else{
+System.out.print( "Ends with other letters = "+ checkcharacter);
+}
 }catch(Exception e){
 System.out.println(e.getMessage());
 }
@@ -152,22 +159,29 @@ System.out.println("Reversed string :"+ reverse);
 System.out.println(e.getMessage());
 }
 
-
 try{
 System.out.println("\nEnter no of multiple Strings to print");
-String[] mstrings= new String [scanner.nextInt()];scanner.nextLine();
+int numOfStrings = scanner.nextInt();scanner.nextLine();
 System.out.println("Enter Multiple Strings to print");
-String multiplestring = runner.acceptMultipleStrings(mstrings,scanner);
-System.out.println("You have entered: " + multiplestring);
+String[] mstrings = new String[numOfStrings];
+for (int i = 0; i < numOfStrings; i++) {
+mstrings[i] = scanner.nextLine();
+}
+String multiplestring = runner.acceptMultipleStrings(mstrings);
+System.out.println("Printing the multiple string :" + multiplestring);
 }catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();}
 
 
 try{
-System.out.println("\nEnter no of multiple Strings to concatenate");
+System.out.println("Enter no of multiple Strings to concatenate");
 int noOfString = scanner.nextInt(); scanner.nextLine();
 System.out.println("Enter Strings to concatenate");
-String concat = runner.concatenateIndividualStrings(noOfString,scanner);
+String[] concatenate=new String[noOfString];
+for (int i = 0 ; i <noOfString; i++){
+concatenate[i]=scanner.nextLine();
+}
+String concat = runner.concatenateIndividualStrings(concatenate);
 System.out.println("concatenate strings :" + concat);}
 catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();}	
@@ -188,7 +202,12 @@ int noOfStrings = scanner.nextInt();scanner.nextLine();
 System.out.println("Enter a symbol to merge each string");
 String symbol=scanner.nextLine();
 System.out.println("Enter multiple Strings to merge");
-String merge_string = runner.mergeStrings(noOfStrings,scanner,symbol);
+String[] strings = new String[noOfStrings];
+for (int i = 0; i < noOfStrings; i++) {
+System.out.print("String " + (i + 1) + ": ");
+strings[i] = scanner.nextLine();
+}
+String merge_string = runner.mergeStrings(strings,symbol);
 System.out.println(merge_string);
 }catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();}
@@ -201,7 +220,7 @@ System.out.print("string 2 :");
 String two =  scanner.nextLine();
 try{
 boolean equality = runner.checkStringEquality(one,two);
-System.out.println("Result for check String Equality" + equality);
+System.out.println("Result for check String Equality = " + equality);
 }catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();}
 
@@ -212,7 +231,7 @@ System.out.print("string 2 :");
 String case2 =  scanner.nextLine();
 try{
 boolean ignorecase = runner.checkStringEqualityIgnoreCase(case1,case2);
-System.out.print("Result for check String Equality IgnoreCase" + ignorecase);
+System.out.print("Result for check String Equality IgnoreCase = " + ignorecase);
 }catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();}
 
@@ -220,7 +239,7 @@ System.out.print("\nEnter a string to trim :");
 String trim =  scanner.nextLine();
 try{
 String trim_result = runner.trimString(trim); 
-System.out.println("Trim result" + trim_result);
+System.out.println("Trim result :" + trim_result);
 }catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();}
 }
