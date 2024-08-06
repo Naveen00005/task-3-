@@ -1,21 +1,26 @@
 package stringprograms;
-import java.util.Scanner;
 public class StringTask{
 
-public void nullPointer(String nullcheck)throws CustomExceptions {
-        if (nullcheck == null) {
+public void validateNullString(String input)throws CustomExceptions {
+        if (input == null) {
             throw new CustomExceptions("Input string is null.");
         }
 }
 
+public void validateNullArray(String[] input)throws CustomExceptions {
+        if (input == null) {
+            throw new CustomExceptions("Input Array is null.");
+        }
+}
+
 public int lengthOfString(String slength) throws CustomExceptions {
-        nullPointer(slength);
+        validateNullString(slength);
         int totalLength = slength.length();
         return totalLength;
 }
 
 public char[] convertItIntoCharacterArray(String character) throws CustomExceptions {
-        nullPointer(character);
+        validateNullString(character);
         return character.toCharArray();
 }
 
@@ -86,45 +91,26 @@ throw new CustomExceptions ("Enter more character");
 }
 }
 
-public String startsWith(String character,String start) throws CustomExceptions{
-int start_number = lengthOfString(start);
-if(lengthOfString(character) >= start_number){
-	String result=character.substring(0,start_number);
-	if(result.equals(start)) {
-		return start;
-	}
-	else {
-	throw new CustomExceptions("Starts with other letters");
-	}
-}
-else{
-throw new CustomExceptions("Please enter a valid input");
-}
-}
+public boolean startsWith(String character,String start) throws CustomExceptions{
+validateNullString(character);
+validateNullString(start);
+return character.startsWith(start);
+} 
 
-public String endsWithLe(String character,String end)throws CustomExceptions{
-int chara = lengthOfString(character);
-int end_num = lengthOfString(end);
-if(chara >= end_num){
-String result=character.substring(chara - end_num,chara);
-if(result.equals(end)) {
-return end;
-} else {
-throw new CustomExceptions("Ends with other letters");
-}
-}else{
-throw new CustomExceptions("Please enter a valid input");
-}
+public boolean endsWith(String character,String end)throws CustomExceptions{
+validateNullString(character);
+validateNullString(end);
+return character.endsWith(end);
 }
 
 public String lowercaseToUppercase(String character)throws CustomExceptions{
-nullPointer(character);
+validateNullString(character);
 String result=character.toUpperCase();
 return result;
 }
 
 public String uppercaseToLowercase(String character)throws CustomExceptions{
-nullPointer(character);
+validateNullString(character);
 String result=character.toLowerCase();
 return result ;
 }
@@ -132,44 +118,34 @@ return result ;
 public String reverseString(String character)throws CustomExceptions{
 String reverse = "";
 int length = lengthOfString(character);
-for(int i = 0; i < length; i++)
-{
-reverse = character.charAt(i) + reverse;
+char[] inputArray = convertItIntoCharacterArray(character);
+for(int i = 0 ; i < length ; i++) {
+reverse = inputArray[i] + reverse;
 }
 return reverse;
 }
 
-public String acceptMultipleStrings(String[] character,Scanner scanner)throws CustomExceptions{
-if (scanner == null){ 
-throw new CustomExceptions("Input string is null.");
+public String acceptMultipleStrings(String[] character)throws CustomExceptions{
+validateNullArray(character);
+StringBuilder result = new StringBuilder();
+for (String str : character) {
+result.append("\n"+str);
 }
-int length = character.length;
-for (int i = 0; i <length; i++)
-{
-character[i] = scanner.nextLine();
-} 
-String output = "";
-for(String str : character)  
-{  
-output = output+"\n"+str;
-}
-return output;
+return result.toString();
 }
 
-public String concatenateIndividualStrings(int input,Scanner scanner)throws CustomExceptions{
-if (scanner == null) {
-throw new CustomExceptions("Input string is null.");
-}
-String print1="";
-for (int i = 0; i <input; i++)   
+public String concatenateIndividualStrings(String[] input)throws CustomExceptions{
+validateNullArray(input);
+StringBuilder print = new StringBuilder();
+for (String concatenate : input )   
 {  
-print1=print1.concat(scanner.nextLine());
+print.append(concatenate);
 } 
-return print1;
+return print.toString();
 }
 
 public String stringToArray(String character)throws CustomExceptions{
-nullPointer(character);
+validateNullString(character);
 String[] words = character.split("\\s+");
 int length = words.length;
 String words_print= "Enclose each string : {";
@@ -183,39 +159,33 @@ words_print= words_print+"}";
 return words_print;
 }
 
-public String mergeStrings(int input,Scanner scanner,String symbol)throws CustomExceptions{
-if (scanner == null) {
-throw new CustomExceptions("Input string is null.");
+public String mergeStrings(String[] input,String symbol)throws CustomExceptions{
+validateNullArray(input);
+validateNullString(symbol);
+StringBuilder result = new StringBuilder();
+for (int i = 0; i < input.length; i++) {
+if (i > 0) {
+result.append(symbol);
 }
-String print="";
-for (int i = 0; i <input; i++)   
-{  
-System.out.print("string "+ (i+1) +" : " );
-if(i==0){
-print=print+ scanner.nextLine();
+result.append(input[i]);
 }
-else
-{
-print=print+symbol+ scanner.nextLine();
-}
-}return print; 
-
+return result.toString();
 }
 
 public boolean checkStringEquality(String input, String check)throws CustomExceptions{
-nullPointer(input);
-nullPointer(check);
+validateNullString(input);
+validateNullString(check);
 return input.equals(check);
 }
 
 public boolean checkStringEqualityIgnoreCase(String character, String ignoreCase)throws CustomExceptions{
-nullPointer(character);
-nullPointer(ignoreCase);
+validateNullString(character);
+validateNullString(ignoreCase);
 return character.equalsIgnoreCase(ignoreCase);
 }
 
 public String trimString(String character)throws CustomExceptions{
-nullPointer(character);
+validateNullString(character);
 return character.trim();
 }
 }
