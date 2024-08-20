@@ -6,7 +6,7 @@ class Runner{
 public static void main(String args[]){
 Scanner scanner = new Scanner(System.in);
 StringTask runner = new StringTask();
- 
+/*
 BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));        
 try {
 System.out.println("Enter a string: ");
@@ -30,11 +30,11 @@ System.out.println(e.getMessage());
 }
 
 try {
-System.out.println("\nEnter a String to find the penultimate character:");
+System.out.println("\nEnter a String :");
 String string1 = scanner.nextLine();
 System.out.print("Enter a number to find from last position: ");
 int occurrence = scanner.nextInt(); scanner.nextLine(); 
-char result = runner.penultimate(occurrence, string1);
+char result = runner.stringFromIndex(occurrence, string1);
 System.out.println("From the given position, it contains: " + result);
 }catch (Exception e) {
 System.out.println(e.getMessage());
@@ -70,7 +70,7 @@ System.out.println("\nEnter a String to find substring from the last position");
 String last = scanner.nextLine();
 System.out.println("Enter a number to print from the last");
 int last1 = scanner.nextInt();scanner.nextLine();
-String fivecharacter = runner.lastFiveCharacters(last,last1);
+String fivecharacter = runner.getLastNCharacters(last,last1);
 System.out.println("The last "+last1+" Characters "+fivecharacter);
 }catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();
@@ -81,7 +81,7 @@ System.out.println("\nEnter a String to find substring from first position");
 String three = scanner.nextLine();
 System.out.println("Enter the number of characters from the first");
 int first = scanner.nextInt();scanner.nextLine();
-String firstThree=runner.firstThreeCharacters(three,first);
+String firstThree=runner.getFirstNCharacters(three,first);
 System.out.println("From the first "+first+" character :"+ firstThree);
 }catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();
@@ -93,7 +93,7 @@ String replace = scanner.nextLine();
 System.out.println("Enter a character to replace from the starting");
 String replace1 = scanner.nextLine();
 try{
-String replaceCharacters= runner.replaceFirstThreeCharacters(replace,replace1);
+String replaceCharacters= runner.replaceCharactersFromBeginning(replace,replace1);
 System.out.println("Replaced the string for the characters :"+ replaceCharacters);
 }catch(Exception e){
 System.out.println(e.getMessage());
@@ -114,7 +114,7 @@ System.out.print("Starts with other letter = "+checkstring );
 System.out.println(e.getMessage());
 }
 
-System.out.println("\nEnter a String to check from last ");
+System.out.println("\n\nEnter a String to check from last ");
 String end = scanner.nextLine();
 System.out.println("Enter a String to check whether a String ends with : ");
 String check = scanner.nextLine();
@@ -130,11 +130,11 @@ System.out.println(e.getMessage());
 }
 
 
-System.out.println("\nEnter a String to convert an all lowercase string to an uppercase string");
+System.out.println("\n\nEnter a String to convert an all lowercase string to an uppercase string");
 String lower=scanner.nextLine();
 try{
-String lowertoupper=runner.lowercaseToUppercase(lower);
-System.out.println("Convert all strings to uppercase :" + lowertoupper);
+String upperCase=runner.convertToUpperCase(lower);
+System.out.println("Convert all strings to uppercase :" + upperCase);
 }catch(Exception e){
 System.out.println(e.getMessage());
 }
@@ -143,13 +143,13 @@ System.out.println(e.getMessage());
 System.out.println("\nEnter a String to convert an all uppercase string to an lowercase string");
 String upper=scanner.nextLine();
 try{
-String uppertolower=runner.uppercaseToLowercase(upper);
-System.out.println("Convert all strings to lowercase :"+ uppertolower);
+String lowerCase =runner.convertToLowerCase(upper);
+System.out.println("Convert all strings to lowercase :"+ lowerCase);
 }catch(Exception e){
 System.out.println(e.getMessage());
 }
 
-
+*/
 System.out.println("\nEnter a String to Reverse");
 String revers=scanner.nextLine();
 try{
@@ -168,13 +168,13 @@ for (int i = 0; i < numOfStrings; i++) {
 mstrings[i] = scanner.nextLine();
 }
 String multiplestring = runner.acceptMultipleStrings(mstrings);
-System.out.println("Printing the multiple string :" + multiplestring);
+System.out.println("Printing the multiple string :"+ multiplestring);
 }catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();}
 
 
 try{
-System.out.println("Enter no of multiple Strings to concatenate");
+System.out.println("\nEnter no of multiple Strings to concatenate");
 int noOfString = scanner.nextInt(); scanner.nextLine();
 System.out.println("Enter Strings to concatenate");
 String[] concatenate=new String[noOfString];
@@ -187,10 +187,12 @@ catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();}	
 
 
-System.out.print("\nEnter a line with multiple Strings & enclose each String into a String array : ");
+System.out.print("\nEnter a line with multiple Strings want to spilt : ");
 String enclose = scanner.nextLine();
+System.out.print("Enter a string to spilt :");
+String spilt = scanner.nextLine();
 try{
-String print = runner.stringToArray(enclose);
+String print = runner.stringToArray(enclose,spilt);
 System.out.println(print);
 }catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();}	
@@ -235,7 +237,7 @@ System.out.print("Result for check String Equality IgnoreCase = " + ignorecase);
 }catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();}
 
-System.out.print("\nEnter a string to trim :");
+System.out.print("\n\nEnter a string to trim :");
 String trim =  scanner.nextLine();
 try{
 String trim_result = runner.trimString(trim); 
