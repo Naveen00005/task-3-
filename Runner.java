@@ -6,7 +6,7 @@ class Runner{
 public static void main(String args[]){
 Scanner scanner = new Scanner(System.in);
 StringTask runner = new StringTask();
-/*
+
 BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));        
 try {
 System.out.println("Enter a string: ");
@@ -149,7 +149,6 @@ System.out.println("Convert all strings to lowercase :"+ lowerCase);
 System.out.println(e.getMessage());
 }
 
-*/
 System.out.println("\nEnter a String to Reverse");
 String revers=scanner.nextLine();
 try{
