@@ -3,14 +3,13 @@ public class StringTask{
 
 public void validateNullString(Object input)throws CustomExceptions {
         if (input == null) {
-            throw new CustomExceptions("Input string is null.");
+            throw new CustomExceptions("Input cannot be null.");
         }
 }
 
 public int lengthOfString(String lengthOfTheWord) throws CustomExceptions {
         validateNullString(lengthOfTheWord);
-        int totalLength = lengthOfTheWord.length();
-        return totalLength;
+        return lengthOfTheWord.length();
 }
 
 public char[] convertItIntoCharacterArray(String character) throws CustomExceptions {
@@ -19,19 +18,18 @@ public char[] convertItIntoCharacterArray(String character) throws CustomExcepti
 }
 
 public char stringFromIndex(int occurrence, String character) throws CustomExceptions {
-	int chara = lengthOfString(character);	
-        if (chara < occurrence) {
-            throw new CustomExceptions("Not able to find character: occurrence exceeds string length.");
+        validateNullString(character);
+        int length = lengthOfString(character);
+        if (occurrence <= 0 || occurrence > length) {
+            return '\0';
         }
-        int index = chara - occurrence;
-	char letter = character.charAt(index);
-	return letter;
-}
+        return character.charAt(length - occurrence);
+    }
 
 public int numberOfOccurrences(String occurrences,char character)throws CustomExceptions{
 	int length = lengthOfString(occurrences);
 	int count = 0;
-	for(int i=0;i<length;i++) {
+	for(int i=0; i<length; i++) {
 		if(occurrences.charAt(i) == character){
 			count++;
 		}
@@ -39,45 +37,36 @@ public int numberOfOccurrences(String occurrences,char character)throws CustomEx
 	return count;
 }
 
-public int greatestPosition(String greatest,char character) throws CustomExceptions{
-	validateNullString(greatest);
+
+public int greatestPosition(String greatest, char character) throws CustomExceptions {
+        validateNullString(greatest);
         int lastIndex = greatest.lastIndexOf(character);
-        if (lastIndex == -1) {
-            throw new CustomExceptions("Character not found in the string.");
-        }
-        return lastIndex + 1;	
-}
+        return lastIndex; 
+    }
 
 public String getLastNCharacters(String character,int position) throws CustomExceptions{
-	int chara = lengthOfString(character);
-	if(chara< position) {
-		throw new CustomExceptions ("Enter a valid input");
+	int length = lengthOfString(character);
+	if(length< position) {
+		throw new CustomExceptions ("Position must be within the length of the string.");
 	}
-
-	String result=character.substring(chara- position,chara);
-	return result;
-
+	return character.substring(length - position);
 }
 
 public String getFirstNCharacters(String character,int position) throws CustomExceptions {
-if (lengthOfString(character) >= position) {
-String result = character.substring(0, position);
-return result;
-} else {
-throw new CustomExceptions ( "String is too short to find the characters from the given position");
+if (position < 0 || position > lengthOfString(character)) {
+throw new CustomExceptions ("Position must be within the length of the string.");
 }
+return character.substring(0, position);
 }
 
 public String replaceCharactersFromBeginning(String character,String replace)throws CustomExceptions{
 int number = lengthOfString(replace);
-if(lengthOfString(character)>=number)
-{
-String result=character.substring(0,number);
-return character.replace(result,replace);
+if(lengthOfString(character) < number) {
+	throw new CustomExceptions ("Replacement string is longer than the original string.");
 }
-else{
-throw new CustomExceptions ("Enter more character");
-}
+	String result=character.substring(0,number);
+	return character.replace(result,replace);
+
 }
 
 public boolean startsWith(String character,String start) throws CustomExceptions{
@@ -94,71 +83,46 @@ return character.endsWith(end);
 
 public String convertToUpperCase(String character)throws CustomExceptions{
 validateNullString(character);
-String result=character.toUpperCase();
-return result;
+return character.toUpperCase();
 }
 
 public String convertToLowerCase(String character)throws CustomExceptions{
 validateNullString(character);
-String result=character.toLowerCase();
-return result ;
+return character.toLowerCase();
 }
 
 public String reverseString(String stringToReverse) throws CustomExceptions {
 	int length = lengthOfString(stringToReverse);
+	 char[] charArray = convertItIntoCharacterArray(stringToReverse);
 	String reversedString = "";
 	for(int i = length-1; i>=0; i--) {
-		reversedString += String.valueOf(stringToReverse.charAt(i));
+		reversedString += charArray[i];
 	}
 return reversedString;
 }
 
 
-public String acceptMultipleStrings(String[] character)throws CustomExceptions{
+public String acceptMultipleStrings(String character)throws CustomExceptions{
 validateNullString(character);
-String result ="";
-for (String str : character) {
-result=result+("\n"+str);
-}
-return result;
+return character;
 }
 
-public String concatenateIndividualStrings(String[] input)throws CustomExceptions{
+public String concatenateIndividualStrings(String input)throws CustomExceptions{
 validateNullString(input);
-String appendedString = "";
-for (String concatenate : input )   
-{  
-appendedString = appendedString + concatenate;
-} 
-return appendedString;
+String[] concatenate = input.split("\\s");
+return String.join("", concatenate);
 }
 
-public String stringToArray(String character, String symbol)throws CustomExceptions{
+public String[] stringToArray(String character, String symbol)throws CustomExceptions{
 validateNullString(character);
 String[] words = character.split(symbol);
-int length = words.length;
-String words_print= "Enclose each string : ";
-for (int i = 0; i <length; i++) {
-if (i > 0){
-words_print= words_print+",";
-}
-words_print= words_print+ "\"" + words[i] + "\"";
-}
-return words_print;
+return words;
 }
 
 public String mergeStrings(String[] input,String symbol)throws CustomExceptions{
 validateNullString(input);
 validateNullString(symbol);
-int arrayLength = input.length;
-String appendedString = "";
-for (int i = 0; i < arrayLength; i++) {
-	appendedString = appendedString + input[i];
-	if(i != (arrayLength -1)) {
-		appendedString = appendedString + symbol;
-	}
-}
-return appendedString;
+return String.join(symbol, input);
 }
 
 public boolean checkStringEquality(String input, String check)throws CustomExceptions{
