@@ -60,7 +60,7 @@ String charToSearch = scanner.nextLine();
 char searchCharacter = charToSearch.charAt(0);
 try{
 int greater = runner.greatestPosition(repeate,searchCharacter);
-System.out.println("The greatest position is "+greater );
+System.out.println("The greatest index position is "+greater );
 } catch (Exception e) {
 System.out.println(e.getMessage());
 }
