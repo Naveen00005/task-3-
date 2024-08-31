@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 import stringprograms.StringTask;
 import stringprograms.CustomExceptions;
 import java.io.*;
@@ -149,6 +149,7 @@ System.out.println("Convert all strings to lowercase :"+ lowerCase);
 System.out.println(e.getMessage());
 }
 
+
 System.out.println("\nEnter a String to Reverse");
 String revers=scanner.nextLine();
 try{
@@ -159,13 +160,8 @@ System.out.println(e.getMessage());
 }
 
 try{
-System.out.println("\nEnter no of multiple Strings to print");
-int numOfStrings = scanner.nextInt();scanner.nextLine();
-System.out.println("Enter Multiple Strings to print");
-String[] mstrings = new String[numOfStrings];
-for (int i = 0; i < numOfStrings; i++) {
-mstrings[i] = scanner.nextLine();
-}
+System.out.println("Enter a line with Multiple Strings : ");
+String mstrings = scanner.nextLine();
 String multiplestring = runner.acceptMultipleStrings(mstrings);
 System.out.println("Printing the multiple string :"+ multiplestring);
 }catch(Exception e){
@@ -173,13 +169,8 @@ System.out.println(e.getMessage());scanner.nextLine();}
 
 
 try{
-System.out.println("\nEnter no of multiple Strings to concatenate");
-int noOfString = scanner.nextInt(); scanner.nextLine();
 System.out.println("Enter Strings to concatenate");
-String[] concatenate=new String[noOfString];
-for (int i = 0 ; i <noOfString; i++){
-concatenate[i]=scanner.nextLine();
-}
+String concatenate= scanner.nextLine();
 String concat = runner.concatenateIndividualStrings(concatenate);
 System.out.println("concatenate strings :" + concat);}
 catch(Exception e){
@@ -191,8 +182,8 @@ String enclose = scanner.nextLine();
 System.out.print("Enter a string to spilt :");
 String spilt = scanner.nextLine();
 try{
-String print = runner.stringToArray(enclose,spilt);
-System.out.println(print);
+String[] print = runner.stringToArray(enclose,spilt);
+System.out.println(Arrays.toString(print));
 }catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();}	
 
