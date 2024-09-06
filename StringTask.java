@@ -21,7 +21,7 @@ public char stringFromIndex(int occurrence, String character) throws CustomExcep
         validateNullString(character);
         int length = lengthOfString(character);
         if (occurrence <= 0 || occurrence > length) {
-            return '\0';
+            throw new CustomExceptions ("The given occurrence position greater than the length");
         }
         return character.charAt(length - occurrence);
     }
@@ -92,13 +92,15 @@ return character.toLowerCase();
 }
 
 public String reverseString(String stringToReverse) throws CustomExceptions {
-	int length = lengthOfString(stringToReverse);
 	 char[] charArray = convertItIntoCharacterArray(stringToReverse);
-	String reversedString = "";
-	for(int i = length-1; i>=0; i--) {
-		reversedString += charArray[i];
-	}
-return reversedString;
+	int start = 0;
+	int end = charArray.length - 1;  
+        while (start < end) {  
+            char temp = charArray[start];
+            charArray[start++] = charArray[end];
+            charArray[end--] = temp;
+        }  
+        return new String(charArray);
 }
 
 
@@ -107,9 +109,9 @@ validateNullString(character);
 return character;
 }
 
-public String concatenateIndividualStrings(String input)throws CustomExceptions{
+public String concatenateIndividualStrings(String input , String concatSymbol)throws CustomExceptions{
 validateNullString(input);
-String[] concatenate = input.split("\\s");
+String[] concatenate = input.split(concatSymbol);
 return String.join("", concatenate);
 }
 
