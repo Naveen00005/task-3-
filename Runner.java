@@ -1,3 +1,4 @@
+
 import java.util.*;
 import stringprograms.StringTask;
 import stringprograms.CustomExceptions;
@@ -171,7 +172,9 @@ System.out.println(e.getMessage());scanner.nextLine();}
 try{
 System.out.println("Enter Strings to concatenate");
 String concatenate= scanner.nextLine();
-String concat = runner.concatenateIndividualStrings(concatenate);
+System.out.println("Enter the Symbol : ");
+String symbol= scanner.nextLine();
+String concat = runner.concatenateIndividualStrings(concatenate,symbol);
 System.out.println("concatenate strings :" + concat);}
 catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();}	
