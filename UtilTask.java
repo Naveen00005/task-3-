@@ -18,4 +18,8 @@ public char[] convertIntoCharacterArray(String character) throws CustomException
         return character.toCharArray();
 }
 
+public int getLength(StringBuilder sb) {
+	validateNullString(sb);
+        return sb.length();
+}
 }
