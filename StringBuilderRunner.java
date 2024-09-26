@@ -138,7 +138,7 @@ System.out.println("\nEnter the number of strings in Stringbuilder to find the f
 int noOfString = scanner.nextInt();scanner.nextLine();
 System.out.println("Enter the symbol to append inbetween the string : ");
 String symbolsHash = scanner.nextLine();
-StringBuilder sb6 =  builderTask.createStringBuilder();
+StringBuilder sb6 =  builderTask.createStringBuilder("");
 for (int i = 0; i < noOfString ; i++) {
 System.out.print("Enter STRING " + (i + 1) + " to append : " );
 String index = scanner.nextLine();
@@ -160,7 +160,7 @@ System.out.println("\nEnter the number of strings in Stringbuilder to find the l
 int numberOfString = scanner.nextInt();scanner.nextLine();
 System.out.println("Enter the symbol to append inbetween the string : ");
 String symbolsToFind = scanner.nextLine();
-StringBuilder sb7 =  builderTask.createStringBuilder();
+StringBuilder sb7 =  builderTask.createStringBuilder("");
 for (int i = 0; i < numberOfString ; i++) {
 System.out.print("Enter STRING " + (i + 1) + " to append : " );
 String index1 = scanner.nextLine();
