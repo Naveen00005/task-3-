@@ -18,14 +18,10 @@ public static char[] convertIntoCharacterArray(String character) throws CustomEx
         return character.toCharArray();
 }
 
-public static int getLength(StringBuilder sb) throws CustomExceptions{
-	validateNullString(sb);
-        return sb.length();
+public static void validatePosition(int position, int length) throws CustomExceptions {
+if (position <= 0 || position > length) {
+throw new CustomExceptions("Position must be greater than zero and less than or equal to the length of the string.");
+ }
 }
 
-public static void validateIndices(int initial, int end, int length) throws CustomExceptions {
-        if (initial < 0 || end < 0 || initial > end || end > length) {
-            throw new CustomExceptions("Invalid indices: initial = " + initial + ", end = " + end);
-}
-}
 }
