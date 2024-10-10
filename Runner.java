@@ -39,7 +39,7 @@ int occurrence = scanner.nextInt(); scanner.nextLine();
 char result = runner.stringFromIndex(occurrence, string1);
 System.out.println("From the given position, it contains: " + result);
 }catch (Exception e) {
-System.out.println(e.getMessage()); 
+System.out.println(e.getMessage());scanner.nextLine(); 
 }
  
 System.out.println("\nEnter a String to find the number of occurrences");
@@ -89,17 +89,17 @@ System.out.println(e.getMessage());scanner.nextLine();
 }
 
 
+try{
 System.out.println("\nEnter a String  to replace the  characters by user ");
 String replace = scanner.nextLine();
 System.out.println("Enter a character to replace from the starting");
 String replace1 = scanner.nextLine();
-System.out.println("Enter a number off character to replace");
+System.out.println("Enter a number of character to replace");
 int replacechar = scanner.nextInt();scanner.nextLine();
-try{
 String replaceCharacters= runner.replaceCharacters(replace,replace1,replacechar);
 System.out.println("Replaced the string for the characters :"+ replaceCharacters);
 }catch(Exception e){
-System.out.println(e.getMessage());
+System.out.println(e.getMessage());scanner.nextLine();
 }
 
 System.out.println("\nEnter a String to check from starting");
