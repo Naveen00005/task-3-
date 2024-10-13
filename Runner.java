@@ -176,7 +176,9 @@ System.out.println("Enter Strings to concatenate");
 String concatenate= scanner.nextLine();
 System.out.println("Enter the Symbol : ");
 String symbol= scanner.nextLine();
-String concat = runner.concatenateIndividualStrings(concatenate,symbol);
+System.out.print("press Enter to concat");
+String conSymbol= scanner.nextLine();
+String concat = runner.concatenateIndividualStrings(concatenate,symbol,conSymbol);
 System.out.println("concatenate strings :" + concat);}
 catch(Exception e){
 System.out.println(e.getMessage());scanner.nextLine();}	
