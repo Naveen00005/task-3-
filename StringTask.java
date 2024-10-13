@@ -99,10 +99,10 @@ public String acceptMultipleStrings(String character)throws CustomExceptions{
 return character;
 }
 
-public String concatenateIndividualStrings(String input , String concatSymbol)throws CustomExceptions{
+public String concatenateIndividualStrings(String input , String concatSymbol, String conSymbol )throws CustomExceptions{
  UtilTask.validateNullString(input);
 String[] concatenate = input.split(concatSymbol);
-return String.join(concatSymbol, concatenate);
+return String.join(conSymbol , concatenate);
 }
 
 public String[] stringToArray(String character, String symbol)throws CustomExceptions{
