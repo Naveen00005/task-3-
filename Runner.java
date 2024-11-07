@@ -61,6 +61,7 @@ System.out.println(c);
 } catch (Exception e) {
 System.out.println(e.getMessage());
 }
+
 break;
 
 case 3:
@@ -74,6 +75,7 @@ System.out.println("From the given position, it contains: " + result);
 }catch (Exception e) {
 System.out.println(e.getMessage());scanner.nextLine(); 
 }
+
 break;
  
 case 4:
@@ -308,7 +310,6 @@ default:
 System.out.println("Invalid choice. Please try again.");
 }
 }while(choice !=0);
+scanner.close();
 }
-
-
 }
