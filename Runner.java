@@ -8,6 +8,7 @@ public class Runner{
 public static void main(String args[]){
 Scanner scanner = new Scanner(System.in);
 int choice;
+try{
 do{
 System.out.println("\nSelect a string operation:");
 System.out.println("1. Length of the params in main method");
@@ -85,8 +86,8 @@ System.out.println("Enter character to find : ");
 String charToFind = scanner.nextLine();
 char input = charToFind.charAt(0);
 try{
-int occurrence = runner.numberOfOccurrences(occurrences ,input);
-System.out.println("Number of occurrences :"+occurrence);
+int occurrence1 = runner.numberOfOccurrences(occurrences ,input);
+System.out.println("Number of occurrences :"+occurrence1);
 } catch (Exception e) {
 System.out.println(e.getMessage());
 }
@@ -310,6 +311,10 @@ default:
 System.out.println("Invalid choice. Please try again.");
 }
 }while(choice !=0);
+} catch (Exception e) {
+System.out.println(e.getMessage());
+} finally {
 scanner.close();
+}
 }
 }
