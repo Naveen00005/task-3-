@@ -7,8 +7,26 @@ class StringBuilderRunner {
 public static void main(String args[]){
 Scanner scanner = new Scanner(System.in);
 StringBuilderTask builderTask = new StringBuilderTask();
+int choice;
+try{
+do{
+System.out.println("Select a task to execute:");
+System.out.println("1. Create and append a string.");
+System.out.println("2. Append strings with a symbol.");
+System.out.println("3. Insert a string in StringBuilder.");
+System.out.println("4. Delete specific parts of the string.");
+System.out.println("5. Replace a part of the string.");
+System.out.println("6. Reverse the string.");
+System.out.println("7. Delete a specific substring.");
+System.out.println("8. Replace a specific substring.");
+System.out.println("9. Find the first index of a symbol.");
+System.out.println("10. Find the last index of a symbol.");
+System.out.println("0. Exit.");
+System.out.print("Enter your choice ... : ");
+choice = scanner.nextInt();scanner.nextLine();
 
-
+switch (choice) {
+case 1:
 try{
 StringBuilder sb = builderTask.createStringBuilder("");
 System.out.println("Initial Length in the string builder : " + UtilTask.getLength(sb));
@@ -20,7 +38,9 @@ System.out.println("The final string is: " + sb);
 }catch (Exception e) {
 System.out.println(e.getMessage());
 }
+break;
 
+case 2:
 try{
 System.out.println("\nEnter an initial string :");
 String initial = scanner.nextLine();
@@ -40,7 +60,9 @@ System.out.println("The final string: " + sb);
 }catch (Exception e) {
 System.out.println(e.getMessage());scanner.nextLine();
 }
+break;
 
+case 3:
 try{
 System.out.println("\nEnter multiple string separated by symbol :");
 String twoString = scanner.nextLine();
@@ -56,7 +78,9 @@ System.out.println("The final string: " +finsert);
 }catch (Exception e) {
 System.out.println(e.getMessage());
 }
+break;
 
+case 4:
 try{
 System.out.println("\nEnter multiple Strings separated by symbol to delete :");
 String twoStrings = scanner.nextLine();
@@ -70,7 +94,9 @@ System.out.println("The final string: " +delete);
 }catch (Exception e) {
 System.out.println(e.getMessage());
 }
+break;
 
+case 5:
 try{
 System.out.println("\nEnter a line in string builder to replace :");
 String line = scanner.nextLine();
@@ -86,7 +112,9 @@ System.out.println("Final String: " + replaced);
 }catch (Exception e) {
 System.out.println(e.getMessage());
 }
+break;
 
+case 6:
 try{
 System.out.println("\nEnter a line in string builder to reverse :");
 String reverse  = scanner.nextLine();
@@ -98,7 +126,9 @@ System.out.println("Final String: " + reversing);
 }catch (Exception e) {
 System.out.println(e.getMessage());
 }
+break;
 
+case 7:
 try{
 System.out.println("\nEnter the string in Stringbuilder specific delete characters : ");
 String input = scanner.nextLine();
@@ -114,7 +144,9 @@ System.out.println("Final String: " + delete);
 }catch (Exception e) {
 System.out.println(e.getMessage());scanner.nextLine();
 }
+break;
 
+case 8:
 try{
 System.out.println("\nEnter the string in Stringbuilder specific characters to replace : ");
 String inputReplace = scanner.nextLine();
@@ -132,7 +164,9 @@ System.out.println("Final String: " + afterReplace);
 }catch (Exception e) {
 System.out.println(e.getMessage());scanner.nextLine();
 }
+break;
 
+case 9:
 try{
 System.out.println("\nEnter the number of strings in Stringbuilder to find the first index of the symbol :");
 int noOfString = scanner.nextInt();scanner.nextLine();
@@ -154,7 +188,9 @@ System.out.println("First index position "+ symbolsHash +" is : " + firstSymbol)
 }catch (Exception e) {
 System.out.println(e.getMessage());scanner.nextLine();
 }
+break;
 
+case 10:
 try{
 System.out.println("\nEnter the number of strings in Stringbuilder to find the last index of the symbol :");
 int numberOfString = scanner.nextInt();scanner.nextLine();
@@ -175,6 +211,19 @@ int lastSymbol=builderTask.indexOfLastSymbol(sb7,symbolsToFind);
 System.out.println("Last index position "+ symbolsToFind +" is : " + lastSymbol);
 }catch (Exception e) {
 System.out.println(e.getMessage());scanner.nextLine();
+}
+break;
+
+case 0:
+break;
+default:
+System.out.println("Invalid choice. Please try again.");
+}
+}while(choice !=0);
+} catch (Exception e) {
+System.out.println(e.getMessage());
+} finally {
+scanner.close();
 }
 }
 }
