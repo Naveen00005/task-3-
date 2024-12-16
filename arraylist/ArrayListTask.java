@@ -1,34 +1,41 @@
 package arrayprograms;
 import java.util.Iterator;
 import java.util.ArrayList;
+import arrayprograms.AddElement;
 
 public class ArrayListTask {
 
 public ArrayList<String> addString (ArrayList<String> array , String str){
-array.add(str);
+AddString arr = new AddString();
+arr.addItem(array,str);
 return array;
 }
 
 public ArrayList<Integer> addIntegers (ArrayList<Integer> array , int number){
-array.add(number);
+AddInteger integers = new AddInteger();
+integers.addItem(array,number);
 return array;
 }
 
-public ArrayList<CustomObject> customObjectAdd (ArrayList<CustomObject> array , String name , int age){
-array.add(new CustomObject(name, age));
+public ArrayList<CustomObject> customObjectAdd (ArrayList<CustomObject> array ,  CustomObject customAdd){
+AddCustomObject custom = new AddCustomObject();
+custom.addItem(array,customAdd);
 return array;
 }
 
 public ArrayList<Object> addIntStrCus(ArrayList<Object> dynamicList, int num) {
-dynamicList.add(num);
+AddObjectAndInt objectAndint = new AddObjectAndInt();
+objectAndint.addItem(dynamicList,num);
 return dynamicList;
 }
 public ArrayList<Object> addIntStrCus(ArrayList<Object> dynamicList, String strVal) {
-dynamicList.add(strVal);
+AddObjectAndInt objectAndint = new AddObjectAndInt();
+objectAndint.addItem(dynamicList,strVal);
 return dynamicList;
 }
-public ArrayList<Object> customObjectAdd5 (ArrayList<Object> array , String name , int age){
-array.add(new CustomObject(name, age));
+public ArrayList<Object> customObjectAdd5 (ArrayList<Object> array , CustomObject custom){
+AddObjectAndInt objectAndint = new AddObjectAndInt();
+objectAndint.addItem(array,custom);
 return array;
 }
 
@@ -86,7 +93,8 @@ return mergedArrayList ;
 }
 
 public ArrayList<Double> addDecimal(ArrayList<Double> array, double value) {
-array.add(value); 
+AddDouble addDouble = new AddDouble();
+addDouble.addItem(array, value);
 return array;
 }
 public ArrayList<Double> removeDecimalAtPosition(ArrayList<Double> array, int position) {
@@ -105,7 +113,8 @@ return first;
 }
 
 public ArrayList<Long> addLong(ArrayList<Long> array, long value) {
-array.add(value);
+AddLong addLong = new AddLong();
+addLong.addItem(array,value);
 return array;
 }
 public ArrayList<Long> removeAllLongValues(ArrayList<Long> array) {
