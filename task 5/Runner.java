@@ -1,14 +1,15 @@
 import java.util.*;
-import stringprograms.Car;
-import stringprograms.Swift;
-import stringprograms.Scross;
-import stringprograms.Xuv;
-import stringprograms.BirdAbstract;
-import stringprograms.ParrotMod; 
-import stringprograms.Duck;
+import inheritance.Car;
+import inheritance.Swift;
+import inheritance.Scross;
+import inheritance.Xuv;
+import inheritance.BirdAbstract;
+import inheritance.ParrotMod; 
+import inheritance.Duck;
 
 public class Runner {
 public static void main(String[] args) {
+try{
 Scanner scanner = new Scanner(System.in);
 
 try{
@@ -116,7 +117,10 @@ Car xuvConst = new Car( "custom constructor");
 Duck duck = new Duck();
 duck.fly();
 duck.speak();
-
+}
+finally{
+scanner.close();
+}
 }
 //task 4, 5
 public static void getCar(Car car){
