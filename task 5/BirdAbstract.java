@@ -1,5 +1,5 @@
-package stringprograms;
-abstract public class BirdAbstract {
+package inheritance;
+ public abstract class BirdAbstract {
 
 public void fly(){
 System.out.println("fly");
