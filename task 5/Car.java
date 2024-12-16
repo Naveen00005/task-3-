@@ -1,4 +1,4 @@
-package stringprograms;
+package inheritance;
 
 public class Car{
 
