@@ -89,7 +89,8 @@ for (int i = 0; i < numObjects; i++) {
  System.out.print("Enter age for object " + (i + 1) + ": ");
  int age = scanner.nextInt();
  scanner.nextLine();
- customList=runner.customObjectAdd(customList,name,age);
+ CustomObject custom = new CustomObject(name,age);
+ customList=runner.customObjectAdd(customList,custom);
 }
 System.out.println("CustomObject ArrayList contents: " + customList);
 System.out.println("Size of ArrayList: " + UtilTask.findSize(customList));
@@ -123,7 +124,8 @@ for (int i = 0; i < numCustomObjects; i++) {
  String name = scanner.nextLine();
  System.out.print("Enter age for object " + (i + 1) + ": ");
  int age = scanner.nextInt();scanner.nextLine();
- dynamicList = runner.customObjectAdd5(dynamicList, name, age);
+ CustomObject custom = new CustomObject(name,age);
+ dynamicList = runner.customObjectAdd5(dynamicList,custom);
 }
 
 System.out.println("ArrayList contents: " + dynamicList);
