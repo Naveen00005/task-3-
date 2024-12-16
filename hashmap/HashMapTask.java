@@ -4,27 +4,33 @@ import java.util.HashMap;
 public class HashMapTask {
 
 public static HashMap<String,String> addTwoString(HashMap<String,String>  map , String key , String value){
-map.put(key,value);
+AddString str = new AddString();
+str.addItem(map,key,value);
 return map;
 }
 
+
 public HashMap<Integer,Integer> addTwoInteger(HashMap<Integer,Integer>  map , Integer key , Integer value){
-map.put(key,value);
+AddInteger inte = new AddInteger();
+inte.addItem(map,key,value);
 return map;
 }
 
 public HashMap<String,Integer> addStringInteger(HashMap<String,Integer>  map , String key , Integer value){
-map.put(key,value);
+AddIntStr intStr = new AddIntStr();
+intStr.addItem(map,key,value);
 return map;
 }
 
 public HashMap<String, CustomObject> addCustomObject(HashMap<String, CustomObject> map, String key, CustomObject value) {
-map.put(key, value);
+AddStringCustomobject customobj = new AddStringCustomobject();
+customobj.addItem(map,key,value);
 return map;
 }
 
 public HashMap<String, String> addNullKey(HashMap<String, String> map, String value) {
-map.put(null, value);
+AddString str = new AddString();
+str.addItem(map,null,value);
 return map;
 }
 
