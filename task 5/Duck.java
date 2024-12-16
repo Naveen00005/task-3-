@@ -1,4 +1,4 @@
- package stringprograms;
+ package inheritance;
 public class Duck extends Bird {
 
 public void fly(){
