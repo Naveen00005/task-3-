@@ -1,7 +1,7 @@
- package stringprograms;
-abstract public class Bird {
+ package inheritance;
+ public abstract class Bird {
 
-abstract public void fly();
+ public abstract void fly();
 public void speak(){
 System.out.println("Bird class speak");
 }
