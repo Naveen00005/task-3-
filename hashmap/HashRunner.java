@@ -132,7 +132,7 @@ HashMap<String,String> map = UtilTask.createHashMap();
 System.out.println("Enter the number of keys to add ");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
-System.out.print("Enter a key (String): ");
+System.out.print("Enter a key (String) for Null value : ");
 String key1 = scanner.nextLine();
 map.put( key1, null);
 System.out.println(" Printing the hashmap :" + map );
