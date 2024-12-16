@@ -1,4 +1,4 @@
-package stringprograms;
+package inheritance;
 public class Xuv extends Car{
 
 private int seats;
