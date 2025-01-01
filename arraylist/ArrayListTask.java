@@ -1,45 +1,39 @@
 package arrayprograms;
 import java.util.Iterator;
 import java.util.ArrayList;
-import arrayprograms.AddElement;
+import java.util.List;
 
 public class ArrayListTask {
 
-public ArrayList<String> addString (ArrayList<String> array , String str){
-AddString arr = new AddString();
-arr.addItem(array,str);
+public List<String> addString (List<String> array , String str){
+array.add(str);
 return array;
 }
 
-public ArrayList<Integer> addIntegers (ArrayList<Integer> array , int number){
-AddInteger integers = new AddInteger();
-integers.addItem(array,number);
+public List<Integer> addIntegers (List<Integer> array , int number){
+array.add(number);
 return array;
 }
 
-public ArrayList<CustomObject> customObjectAdd (ArrayList<CustomObject> array ,  CustomObject customAdd){
-AddCustomObject custom = new AddCustomObject();
-custom.addItem(array,customAdd);
+public List<CustomObject> customObjectAdd (List<CustomObject> array , String name , int age){
+array.add(new CustomObject(name, age));
 return array;
 }
 
-public ArrayList<Object> addIntStrCus(ArrayList<Object> dynamicList, int num) {
-AddObjectAndInt objectAndint = new AddObjectAndInt();
-objectAndint.addItem(dynamicList,num);
+public List<Object> addIntStrCus(List<Object> dynamicList, int num) {
+dynamicList.add(num);
 return dynamicList;
 }
-public ArrayList<Object> addIntStrCus(ArrayList<Object> dynamicList, String strVal) {
-AddObjectAndInt objectAndint = new AddObjectAndInt();
-objectAndint.addItem(dynamicList,strVal);
+public List<Object> addIntStrCus(List<Object> dynamicList, String strVal) {
+dynamicList.add(strVal);
 return dynamicList;
 }
-public ArrayList<Object> customObjectAdd5 (ArrayList<Object> array , CustomObject custom){
-AddObjectAndInt objectAndint = new AddObjectAndInt();
-objectAndint.addItem(array,custom);
+public List<Object> customObjectAdd5 (List<Object> array , String name , int age){
+array.add(new CustomObject(name, age));
 return array;
 }
 
-public int findIndex(ArrayList<String> array, String searchString) {
+public int findIndex(List<String> array, String searchString) {
 return array.indexOf(searchString);
 }
 
@@ -50,7 +44,7 @@ it += array.next()+"\n";
 }
 return it;
 }
-public String printUsingForLoop(ArrayList<String> array) {
+public String printUsingForLoop(List<String> array) {
 String result = "";
 for (String str : array) {
 result += str +"\n";
@@ -58,26 +52,26 @@ result += str +"\n";
 return result ;
 }
 
-public String getStringAtIndex(ArrayList<String> array, int index) {
+public String getStringAtIndex(List<String> array, int index) {
 return array.get(index);
 }
 
-public int findFirstIndex(ArrayList<String> array, String str) {
+public int findFirstIndex(List<String> array, String str) {
  return array.indexOf(str);
 }
-public int findLastIndex(ArrayList<String> array, String str) {
+public int findLastIndex(List<String> array, String str) {
 return array.lastIndexOf(str);
 }
  
-public ArrayList<String> addStringAtPosition(ArrayList<String> array, String str, int position) {
+public List<String> addStringAtPosition(List<String> array, String str, int position) {
 if (position >= 0 || position <= array.size()) {
  array.add(position, str);
 }
 return array;
 }
 
-public ArrayList<String> createArrayList(ArrayList<String> array, int initial, int end){
-ArrayList<String> secondArrayList = new ArrayList<>();
+public List<String> createArrayList(List<String> array, int initial, int end){
+List<String> secondArrayList = new ArrayList<>();
 for (int i=initial;i<=end;i++){
 secondArrayList.add(array.get(i));
 }
@@ -85,44 +79,42 @@ return secondArrayList ;
 }
 
 
-public ArrayList<String> mergeArrayLists(ArrayList<String> first, ArrayList<String> second){
-ArrayList<String> mergedArrayList = new ArrayList<>();
+public List<String> mergeArrayLists(List<String> first, List<String> second){
+List<String> mergedArrayList = new ArrayList<>();
 mergedArrayList.addAll(first);
 mergedArrayList.addAll(second);
 return mergedArrayList ;
 }
 
-public ArrayList<Double> addDecimal(ArrayList<Double> array, double value) {
-AddDouble addDouble = new AddDouble();
-addDouble.addItem(array, value);
+public List<Double> addDecimal(List<Double> array, double value) {
+array.add(value); 
 return array;
 }
-public ArrayList<Double> removeDecimalAtPosition(ArrayList<Double> array, int position) {
+public List<Double> removeDecimalAtPosition(List<Double> array, int position) {
 array.remove(position);
 return array;
 }
 
-public ArrayList<String> removeCommonElements(ArrayList<String> first, ArrayList<String> second) {
+public List<String> removeCommonElements(List<String> first, List<String> second) {
 first.removeAll(second);
 return first;
 }
 
-public ArrayList<String>retainCommonElements(ArrayList<String> first, ArrayList<String> second) {
+public List<String>retainCommonElements(List<String> first, List<String> second) {
 first.retainAll(second);
 return first;
 }
 
-public ArrayList<Long> addLong(ArrayList<Long> array, long value) {
-AddLong addLong = new AddLong();
-addLong.addItem(array,value);
+public List<Long> addLong(List<Long> array, long value) {
+array.add(value);
 return array;
 }
-public ArrayList<Long> removeAllLongValues(ArrayList<Long> array) {
+public List<Long> removeAllLongValues(List<Long> array) {
 array.clear();
 return array;
 }
 
-public boolean checkStringPresence(ArrayList<String> array, String str) {
+public boolean checkStringPresence(List<String> array, String str) {
 return array.contains(str);
 }
 }
