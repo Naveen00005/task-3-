@@ -1,14 +1,17 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Iterator;
 import java.util.Scanner;
 import arrayprograms.ArrayListTask;
 import arrayprograms.CustomObject;
 import arrayprograms.UtilTask;
 
-public class ArrayRunner {
+class ArrayRunner {
 static Scanner scanner = new Scanner(System.in);
 public static void main(String args[]){
+ArrayRunner arrayRunner  = new ArrayRunner();
 ArrayListTask runner = new ArrayListTask();
+UtilTask utilTask = new UtilTask();
 int choice;
 try{
 do{
@@ -39,8 +42,8 @@ switch (choice)
 {
 case 1:
 try {
-ArrayList<String> array = UtilTask.createArrayList();
-System.out.println("Size of ArrayList: " + UtilTask.findSize(array));
+List<String> array = utilTask.createArrayList();
+System.out.println("Size of ArrayList: " + utilTask.findSize(array));
 } catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
 }
@@ -50,13 +53,12 @@ case 2:
 try{
 System.out.println("\nEnter the number of strings to add:");
 int  numStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<String> arrayList =UtilTask.createArrayList(); 
-arrayList = getString(arrayList, numStrings );
+List<String> arrayList =utilTask.createArrayList(); 
+arrayList = arrayRunner.getString(arrayList, numStrings );
 System.out.println("ArrayList contents: " + arrayList);
-System.out.println("Size of ArrayList: " + UtilTask.findSize(arrayList));
+System.out.println("Size of ArrayList: " + utilTask.findSize(arrayList));
 } catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
-scanner.nextLine();
 }
 break;
 
@@ -64,17 +66,16 @@ case 3:
 try{
 System.out.println("\nEnter the number of integers to add:");
 int numIntegers = scanner.nextInt();
-ArrayList<Integer> intList = new ArrayList<>();
-for(int i=0 ; i <  numIntegers; i++){ 
- System.out.print("Enter Integer"+ (i+1) +"= " );
+List<Integer> intList = new ArrayList<>();
+for (int i = 0; i < numIntegers; i++) {
+ System.out.print("Enter Integer" + (i + 1) + "= ");
  int number = scanner.nextInt();
- intList = runner.addIntegers(intList,number);
+ intList = runner.addIntegers (intList,number);
 }
 System.out.println("ArrayList contents: " + intList);
-System.out.println("Size of ArrayList: " + UtilTask.findSize(intList));
+System.out.println("Size of ArrayList: " + utilTask.findSize(intList));
 } catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
-scanner.nextLine();
 }
 break;
 
@@ -82,41 +83,31 @@ case 4:
 try{
 System.out.println("\nEnter the number of custom objects to add:");
 int numObjects = scanner.nextInt();scanner.nextLine();
-ArrayList<CustomObject> customList = new ArrayList<>();
+List<CustomObject> customList = new ArrayList<>();
 for (int i = 0; i < numObjects; i++) {
  System.out.print("Enter name for object " + (i + 1) + ": ");
  String name = scanner.nextLine();
  System.out.print("Enter age for object " + (i + 1) + ": ");
  int age = scanner.nextInt();
  scanner.nextLine();
- CustomObject custom = new CustomObject(name,age);
- customList=runner.customObjectAdd(customList,custom);
+ customList=runner.customObjectAdd(customList,name,age);
 }
 System.out.println("CustomObject ArrayList contents: " + customList);
-System.out.println("Size of ArrayList: " + UtilTask.findSize(customList));
+System.out.println("Size of ArrayList: " + utilTask.findSize(customList));
 } catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
-scanner.nextLine();
 }
 break;
 
 case 5:
 try{
-ArrayList<Object> dynamicList = new ArrayList<>();
+List<Object> dynamicList = new ArrayList<>();
 System.out.println("\nEnter the number of integer to add:");
 int numInts = scanner.nextInt();scanner.nextLine();
-for(int i=0 ; i <  numInts ; i++){ 
- System.out.print("Enter Integer"+ (i+1) +"= " );
- int number = scanner.nextInt();
- dynamicList = runner.addIntStrCus(dynamicList ,number);
-}
+dynamicList = arrayRunner.getObjString(dynamicList , numInts );
 System.out.println("\nEnter the number of strings to add:");
 int numStringsDynamic = scanner.nextInt();scanner.nextLine();
-for(int i=0 ; i <  numStringsDynamic ; i++){ 
- System.out.print("Enter String"+ (i+1) +"= " );
- String string = scanner.nextLine();
- dynamicList = runner.addIntStrCus(dynamicList ,string);
-}
+dynamicList = arrayRunner.getObjString(dynamicList , numStringsDynamic );
 System.out.println("Enter the number of custom objects to add:");
 int numCustomObjects = scanner.nextInt();scanner.nextLine();
 for (int i = 0; i < numCustomObjects; i++) {
@@ -124,15 +115,13 @@ for (int i = 0; i < numCustomObjects; i++) {
  String name = scanner.nextLine();
  System.out.print("Enter age for object " + (i + 1) + ": ");
  int age = scanner.nextInt();scanner.nextLine();
- CustomObject custom = new CustomObject(name,age);
- dynamicList = runner.customObjectAdd5(dynamicList,custom);
+ dynamicList = runner.customObjectAdd5(dynamicList, name, age);
 }
 
 System.out.println("ArrayList contents: " + dynamicList);
-System.out.println("Size of ArrayList: " + UtilTask.findSize(dynamicList));                        
+System.out.println("Size of ArrayList: " + utilTask.findSize(dynamicList));                        
 } catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
-scanner.nextLine();
 }
 break;
 
@@ -140,8 +129,8 @@ case 6:
 try{
 System.out.println("\nEnter the number of strings to add:");
 int  numberStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<String> stringList = new ArrayList<>();
-stringList  = getString(stringList  , numberStrings );
+List<String> stringList = new ArrayList<>();
+stringList  = arrayRunner.getString(stringList  , numberStrings );
 System.out.print("\nEnter the string to find its index: ");
 String searchString = scanner.nextLine();
 int index = runner.findIndex(stringList, searchString);
@@ -151,10 +140,9 @@ System.out.println("The index of " + searchString + " is: " + index);
 System.out.println("The string " + searchString + " is not found in the ArrayList.");
 }
 System.out.println("ArrayList contents: " + stringList);
-System.out.println("Size of ArrayList: " + UtilTask.findSize(stringList)); 
+System.out.println("Size of ArrayList: " + utilTask.findSize(stringList)); 
 }catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
-scanner.nextLine();
 }
 break;
 
@@ -162,8 +150,9 @@ case 7:
 try{
 System.out.println("\nEnter the number of strings to add:");
 int  numberOfStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<String> stringLists =  UtilTask.createArrayList();
-stringLists = getString(stringLists, numberOfStrings );
+List<String> stringLists =  utilTask.createArrayList();
+stringLists = arrayRunner.getString(stringLists, numberOfStrings );
+
 System.out.println("Using Iterator to print");
 Iterator<String> it = stringLists.iterator();
 String result = runner.iterator(it);
@@ -173,27 +162,26 @@ String result1 = runner.printUsingForLoop(stringLists );
 System.out.println(result1);
 }catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
-scanner.nextLine();
 }
 break;
 
 case 8:
 try{
 System.out.println("Enter the number of strings to add:");
-ArrayList<String> strList =  UtilTask.createArrayList();
+List<String> strList =  utilTask.createArrayList();
 int numStrings = scanner.nextInt();scanner.nextLine(); 
-strList = getString(strList, numStrings );
+strList = arrayRunner.getString(strList, numStrings );
 System.out.print("\nEnter the index of the string to retrieve: ");
 int index = scanner.nextInt();
-if (index >= 0 || index < UtilTask.findSize(strList)) {
+if (index >= 0 || index < utilTask.findSize(strList)) {
 String retrievedString = runner.getStringAtIndex(strList, index);
 System.out.println("String at index " + index + ": " + retrievedString);
 } else {
-System.out.println("Invalid index. Index should be between 0 and " + (UtilTask.findSize(strList) - 1));
+System.out.println("Invalid index. Index should be between 0 and " + (utilTask.findSize(strList) - 1));
 }
-System.out.println("Size of ArrayList: " + UtilTask.findSize(strList));
+System.out.println("Size of ArrayList: " + utilTask.findSize(strList));
 }catch (Exception e) {
-System.out.println("An error occurred: " + e.getMessage());scanner.nextLine();
+System.out.println("An error occurred: " + e.getMessage());
 }
 break;
 
@@ -201,8 +189,8 @@ case 9:
 try{
 System.out.println("Enter the number of strings to add:");
 int numStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<String> stringList =  UtilTask.createArrayList();
-stringList = getString(stringList, numStrings );
+List<String> stringList =  utilTask.createArrayList();
+stringList = arrayRunner.getString(stringList, numStrings );
 System.out.print("\nEnter the string to find first and last positions: ");
 String duplicateString = scanner.nextLine();
 int firstIndex = runner.findFirstIndex(stringList, duplicateString);
@@ -216,7 +204,6 @@ System.out.println("Last position: " + lastIndex);
 System.out.println("ArrayList contents: " + stringList);
 }catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
-scanner.nextLine();
 }
 break;
 
@@ -224,18 +211,17 @@ case 10:
 try {
 System.out.println("Enter the number of strings to add in arraylist:");
 int numStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<String> stringList =  UtilTask.createArrayList();
-stringList = getString(stringList, numStrings );
+List<String> stringList =  utilTask.createArrayList();
+stringList = arrayRunner.getString(stringList, numStrings );
 System.out.print("Enter the string you want to add: ");
 String newString = scanner.nextLine();
 System.out.print("Enter the index position where you want to insert the string: ");
 int position = scanner.nextInt();scanner.nextLine();
 stringList = runner.addStringAtPosition(stringList, newString, position);
 System.out.println("Updated ArrayList: " + stringList);
-System.out.println("Size of ArrayList: " + UtilTask.findSize(stringList));
+System.out.println("Size of ArrayList: " + utilTask.findSize(stringList));
 } catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
-scanner.nextLine();
 }
 break;
 
@@ -243,19 +229,18 @@ case 11:
 try{
 System.out.println("Enter the number of strings to add to the first ArrayList:");
 int numStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<String> firstArrayList =  UtilTask.createArrayList();new ArrayList<>();
-firstArrayList = getString(firstArrayList , numStrings );
+List<String> firstArrayList =  utilTask.createArrayList();
+firstArrayList = arrayRunner.getString(firstArrayList , numStrings );
 System.out.println("First ArrayList: " + firstArrayList);
 System.out.println("Enter the initial index position of strings to add in the second ArrayList:");
 int initial = scanner.nextInt();scanner.nextLine();
 System.out.println("Enter the end index position of strings to add in the second ArrayList:");
 int end = scanner.nextInt();scanner.nextLine();
-ArrayList<String>secondArrayList  = runner.createArrayList(firstArrayList , initial , end);
+List<String> secondArrayList  = runner.createArrayList(firstArrayList , initial , end);
 System.out.println("Original ArrayList: " + firstArrayList );
 System.out.println("Substrings ArrayList: " + secondArrayList);
 } catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
-scanner.nextLine();
 }
 break;
 
@@ -263,20 +248,19 @@ case 12:
 try{
 System.out.println("Enter the number of strings to add to the first ArrayList:");
 int numStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<String> firstArrayList =  UtilTask.createArrayList();
-firstArrayList = getString(firstArrayList , numStrings );
+List<String> firstArrayList =  utilTask.createArrayList();
+firstArrayList = arrayRunner.getString(firstArrayList , numStrings );
 System.out.println("Enter the number of strings to add to the second ArrayList:");
 int numberStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<String> secondArrayList =  UtilTask.createArrayList();
-secondArrayList = getString(secondArrayList , numberStrings );
+List<String> secondArrayList =  utilTask.createArrayList();
+secondArrayList = arrayRunner.getString(secondArrayList , numberStrings );
 System.out.println("First ArrayList: " + firstArrayList );
 System.out.println("Second ArrayList: " + secondArrayList);
-ArrayList<String> thirdArrayList = runner.mergeArrayLists(firstArrayList,secondArrayList );
+List<String> thirdArrayList = runner.mergeArrayLists(firstArrayList,secondArrayList );
 System.out.println("Merged ArrayList: " + thirdArrayList);
-System.out.println("Merged ArrayList size: " + UtilTask.findSize(thirdArrayList));
+System.out.println("Merged ArrayList size: " + utilTask.findSize(thirdArrayList));
 }catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
-scanner.nextLine();
 }
 break;
 
@@ -284,20 +268,19 @@ case 13:
 try{
 System.out.println("Enter the number of strings to add to the first ArrayList:");
 int numStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<String> firstArrayList =  UtilTask.createArrayList();
-firstArrayList = getString(firstArrayList , numStrings );
+List<String> firstArrayList =  utilTask.createArrayList();
+firstArrayList = arrayRunner.getString(firstArrayList , numStrings );
 System.out.println("Enter the number of strings to add to the second ArrayList:");
 int numberStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<String> secondArrayList =  UtilTask.createArrayList();
-secondArrayList = getString(secondArrayList , numberStrings);
+List<String> secondArrayList =  utilTask.createArrayList();
+secondArrayList = arrayRunner.getString(secondArrayList , numberStrings);
 System.out.println("First ArrayList: " + firstArrayList );
 System.out.println("Second ArrayList: " + secondArrayList);
-ArrayList<String> thirdArrayList = runner.mergeArrayLists(secondArrayList,firstArrayList );
+List<String> thirdArrayList = runner.mergeArrayLists(secondArrayList,firstArrayList );
 System.out.println("Third ArrayList (merged with second ArrayList first):" + thirdArrayList);
-System.out.println("Size of Third ArrayList: " + UtilTask.findSize(thirdArrayList));
+System.out.println("Size of Third ArrayList: " + utilTask.findSize(thirdArrayList));
 }catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
-scanner.nextLine();
 }
 break;
 
@@ -305,7 +288,7 @@ case 14:
 try{
 System.out.println("Enter the number  to add in the Decimal ArrayList:");
 int numStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<Double> decimalList = new ArrayList<>();
+List<Double> decimalList = new ArrayList<>();
 for (int i = 0; i < numStrings; i++) {
 System.out.print("Enter String " + (i + 1) + ": ");
 double str = scanner.nextDouble();
@@ -316,10 +299,9 @@ System.out.println("Enter the index position to remove in the decimal arraylist"
 int remove = scanner.nextInt();scanner.nextLine();
 decimalList = runner.removeDecimalAtPosition(decimalList, remove);
 System.out.println("Updated ArrayList after removing the element at position : " + decimalList);
-System.out.println("Size of the ArrayList: " + UtilTask.findSize(decimalList));
+System.out.println("Size of the ArrayList: " + utilTask.findSize(decimalList));
 }catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
-scanner.nextLine();
 }
 break;
 
@@ -327,19 +309,18 @@ case 15:
 try{
 System.out.println("Enter the number of strings to add to the first ArrayList:");
 int numStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<String> firstArrayList =  UtilTask.createArrayList();
-firstArrayList = getString(firstArrayList , numStrings );
+List<String> firstArrayList =  utilTask.createArrayList();
+firstArrayList = arrayRunner.getString(firstArrayList , numStrings );
 System.out.println("Enter the number of strings to add to the second ArrayList:");
 int numberStrings = scanner.nextInt();scanner.nextLine();
 System.out.println("Enter the strings to remove which present in the above arraylist :");
-ArrayList<String> secondArrayList =  UtilTask.createArrayList();
-secondArrayList = getString(secondArrayList , numberStrings);
-ArrayList<String> removedArrayList = runner.removeCommonElements(firstArrayList , secondArrayList );
+List<String> secondArrayList =  utilTask.createArrayList();
+secondArrayList = arrayRunner.getString(secondArrayList , numberStrings);
+List<String> removedArrayList = runner.removeCommonElements(firstArrayList , secondArrayList );
 System.out.println("Updated First ArrayList after removing elements from the second ArrayList: " + removedArrayList );
-System.out.println("Size of the updated ArrayList: " + UtilTask.findSize(removedArrayList));
+System.out.println("Size of the updated ArrayList: " + utilTask.findSize(removedArrayList));
 }catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
-scanner.nextLine();
 }
 break;
 
@@ -347,18 +328,18 @@ case 16:
 try{
 System.out.println("Enter the number of strings to add to the first ArrayList:");
 int numStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<String> firstArrayList =  UtilTask.createArrayList();
-firstArrayList = getString(firstArrayList , numStrings );
+List<String> firstArrayList =  utilTask.createArrayList();
+firstArrayList = arrayRunner.getString(firstArrayList , numStrings );
 System.out.println("Enter the number of strings to add to the second ArrayList:");
 int numberStrings = scanner.nextInt();scanner.nextLine();
 System.out.println("Enter the strings to retain which present in the above arraylist :");
-ArrayList<String> secondArrayList =  UtilTask.createArrayList();
-secondArrayList = getString(secondArrayList ,numberStrings );
-ArrayList<String> updatedArrayList = runner.retainCommonElements(firstArrayList, secondArrayList);
+List<String> secondArrayList =  utilTask.createArrayList();
+secondArrayList = arrayRunner.getString(secondArrayList ,numberStrings );
+List<String> updatedArrayList = runner.retainCommonElements(firstArrayList, secondArrayList);
 System.out.println("Updated First ArrayList after retaining elements from the second ArrayList: " + updatedArrayList);
-System.out.println("Size of the updated ArrayList: " + UtilTask.findSize(updatedArrayList));
+System.out.println("Size of the updated ArrayList: " + utilTask.findSize(updatedArrayList));
 }catch (Exception e) {
-System.out.println("An error occurred: " + e.getMessage());scanner.nextLine();
+System.out.println("An error occurred: " + e.getMessage());
 }
 break;
 
@@ -366,18 +347,18 @@ case 17:
 try{
 System.out.println("Enter the number of long values to add to the ArrayList: ");
 int numStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<Long> longList = new ArrayList<>();
+List<Long> longList = new ArrayList<>();
 for (int i = 0; i < numStrings ; i++) {
 System.out.print("Enter long value " + (i + 1) + ": ");
 long value = scanner.nextLong();
 longList = runner.addLong(longList, value);
 }
 System.out.println("ArrayList before removal: " + longList);
-ArrayList<Long> updatedList = runner.removeAllLongValues(longList);
+List<Long> updatedList = runner.removeAllLongValues(longList);
 System.out.println("ArrayList after removing all elements: " + updatedList);
-System.out.println("Size of the ArrayList after removal: " + UtilTask.findSize(updatedList));
+System.out.println("Size of the ArrayList after removal: " + utilTask.findSize(updatedList));
 }catch (Exception e) {
-System.out.println("An error occurred: " + e.getMessage());scanner.nextLine();
+System.out.println("An error occurred: " + e.getMessage());
 }
 break;
 
@@ -385,16 +366,16 @@ case 18:
 try{
 System.out.println("Enter the number of strings to add in arraylist:");
 int numStrings = scanner.nextInt();scanner.nextLine();
-ArrayList<String> stringList =  UtilTask.createArrayList();
-stringList = getString(stringList , numStrings );
+List<String> stringList =  utilTask.createArrayList();
+stringList = arrayRunner.getString(stringList , numStrings );
 System.out.print("Enter a String to check if it is present in the ArrayList: ");
 String searchString = scanner.nextLine();
 boolean isPresent = runner.checkStringPresence(stringList, searchString);
 System.out.println("ArrayList: " + stringList);
-System.out.println("Size of the ArrayList: " + UtilTask.findSize(stringList));
+System.out.println("Size of the ArrayList: " + utilTask.findSize(stringList));
 System.out.println("The entered string =" + isPresent);
 }catch (Exception e) {
-System.out.println("An error occurred: " + e.getMessage());scanner.nextLine();
+System.out.println("An error occurred: " + e.getMessage());
 }
 break;
 
@@ -405,17 +386,29 @@ default:
 System.out.println("Invalid choice. Please try again.");
 }
 }while(choice !=0);
-}  finally {
+} catch (Exception e) {
+System.out.println("An error occurred in case: " + e.getMessage());
+} finally {
 scanner.close();
 }
 }
 
-public static ArrayList<String> getString(ArrayList<String> arrayList , int numbers){
+public List<String> getString(List<String> arrayList , int numbers){
 ArrayListTask runner = new ArrayListTask();
 for(int i=0 ; i <  numbers ; i++){ 
  System.out.print("Enter String"+ (i+1) +"= " );
  String string = scanner.nextLine();
  arrayList = runner.addString(arrayList,string);
+}
+return arrayList;
+}
+
+public List<Object> getObjString(List<Object> arrayList , int numbers){
+ArrayListTask runner = new ArrayListTask();
+for(int i=0 ; i <  numbers ; i++){ 
+ System.out.print("Enter String"+ (i+1) +"= " );
+ String string = scanner.nextLine();
+ arrayList = runner.addIntStrCus(arrayList,string);
 }
 return arrayList;
 }
