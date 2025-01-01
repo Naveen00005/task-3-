@@ -1,14 +1,16 @@
 package arrayprograms;
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class UtilTask{
 
-public static int findSize(ArrayList<?> arrayList) {
+public int findSize(List<?> arrayList) {
         return arrayList.size();
 }
 
-public static ArrayList<String> createArrayList(){
-ArrayList<String> array = new ArrayList<String>();
+public List<String> createArrayList(){
+List<String> array = new ArrayList<String>();
 return array;
 }
 
