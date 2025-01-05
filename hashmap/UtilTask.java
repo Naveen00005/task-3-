@@ -2,8 +2,17 @@ package hashmapprograms;
 import java.util.HashMap;
 
 public class UtilTask{
-public static int findSize(HashMap<String,String> hashmap) {
- return hashmap.size();
+
+public static void validateNullString(Object input)throws CustomExceptions {
+        if (input == null) {
+            throw new CustomExceptions("Input cannot be null.");
+        }
+}
+
+
+public static int findSize(HashMap<String,String> hashmap) throws CustomExceptions  {
+validateNullString(hashmap); 
+return hashmap.size();
 }
 
 public static HashMap<String,String> createHashMap(){
