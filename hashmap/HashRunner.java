@@ -448,12 +448,16 @@ scanner.close();
 }
 
 public static HashMap<String, String> getString(HashMap<String, String> map, int number) {
+try{
 for(int i=0 ; i <  number ; i++){ 
  System.out.print("Enter a key (String)"+ (i+1) +"= " );
  String key = scanner.nextLine();
  System.out.print("Enter a values (String)"+ (i+1) +"= " );
  String value = scanner.nextLine();
  map = HashMapTask.addTwoString(map,key,value);
+}
+} catch (Exception e) {
+System.out.println("An error occurred: " + e.getMessage());
 }
 return map;
 }
