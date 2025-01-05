@@ -5,116 +5,115 @@ import java.util.List;
 
 public class ArrayListTask {
 
-public List<String> addString (List<String> array , String str){
+public List<Object> addString (List<Object> array , Object str) throws CustomExceptions {
+UtilTask.validateNullString(array );
+UtilTask.validateNullString(str);
 array.add(str);
 return array;
 }
 
-public List<Integer> addIntegers (List<Integer> array , int number){
-array.add(number);
+public List<CustomObject> customObjectAdd (List<CustomObject> array ,  CustomObject customAdd) throws CustomExceptions {
+UtilTask.validateNullString(array );
+UtilTask.validateNullString(customAdd);
+array.add(customAdd);
 return array;
 }
 
-public List<CustomObject> customObjectAdd (List<CustomObject> array , String name , int age){
-array.add(new CustomObject(name, age));
-return array;
-}
-
-public List<Object> addIntStrCus(List<Object> dynamicList, int num) {
-dynamicList.add(num);
-return dynamicList;
-}
-public List<Object> addIntStrCus(List<Object> dynamicList, String strVal) {
-dynamicList.add(strVal);
-return dynamicList;
-}
-public List<Object> customObjectAdd5 (List<Object> array , String name , int age){
-array.add(new CustomObject(name, age));
-return array;
-}
-
-public int findIndex(List<String> array, String searchString) {
+public int findIndex(List<Object> array, String searchString) throws CustomExceptions {
+UtilTask.validateNullString(array );
+UtilTask.validateNullString(searchString);
 return array.indexOf(searchString);
 }
 
-public String iterator (Iterator<String> array){
+public String iterator (Iterator<Object> array) throws CustomExceptions {
+UtilTask.validateNullString(array );
 String it = "";
 while(array.hasNext()) {
 it += array.next()+"\n";
 }
 return it;
 }
-public String printUsingForLoop(List<String> array) {
+public String printUsingForLoop(List<Object> array) throws CustomExceptions {
+UtilTask.validateNullString(array );
 String result = "";
-for (String str : array) {
+for (Object str : array) {
 result += str +"\n";
 }
 return result ;
 }
 
-public String getStringAtIndex(List<String> array, int index) {
+public Object getStringAtIndex(List<Object> array, int index) throws CustomExceptions {
+UtilTask.validateNullString(array );
 return array.get(index);
 }
 
-public int findFirstIndex(List<String> array, String str) {
- return array.indexOf(str);
+public int findFirstIndex(List<Object> array, String str)throws CustomExceptions {
+UtilTask.validateNullString(array );
+UtilTask.validateNullString(str); 
+return array.indexOf(str);
 }
-public int findLastIndex(List<String> array, String str) {
+public int findLastIndex(List<Object> array, String str) throws CustomExceptions {
+UtilTask.validateNullString(array );
+UtilTask.validateNullString(str);
 return array.lastIndexOf(str);
 }
  
-public List<String> addStringAtPosition(List<String> array, String str, int position) {
+public List<Object> addStringAtPosition(List<Object> array, String str, int position) throws CustomExceptions {
+UtilTask.validateNullString(array );
+UtilTask.validateNullString(str);
 if (position >= 0 || position <= array.size()) {
  array.add(position, str);
 }
 return array;
 }
 
-public List<String> createArrayList(List<String> array, int initial, int end){
-List<String> secondArrayList = new ArrayList<>();
+public List<Object> createArrayList(List<Object> array, int initial, int end) throws CustomExceptions{
+UtilTask.validateNullString(array );
+List<Object> secondArrayList = new ArrayList<>();
 for (int i=initial;i<=end;i++){
 secondArrayList.add(array.get(i));
 }
 return secondArrayList ;
 }
 
-
-public List<String> mergeArrayLists(List<String> first, List<String> second){
-List<String> mergedArrayList = new ArrayList<>();
+public List<Object> mergeArrayLists(List<Object> first, List<Object> second) throws CustomExceptions {
+UtilTask.validateNullString(first );
+UtilTask.validateNullString(second );
+List<Object> mergedArrayList = new ArrayList<>();
 mergedArrayList.addAll(first);
 mergedArrayList.addAll(second);
 return mergedArrayList ;
 }
 
-public List<Double> addDecimal(List<Double> array, double value) {
-array.add(value); 
-return array;
-}
-public List<Double> removeDecimalAtPosition(List<Double> array, int position) {
+public List<Object> removeDecimalAtPosition(List<Object> array, int position) throws CustomExceptions {
+UtilTask.validateNullString(array );
 array.remove(position);
 return array;
 }
 
-public List<String> removeCommonElements(List<String> first, List<String> second) {
+public List<Object> removeCommonElements(List<Object> first, List<Object> second) throws CustomExceptions {
+UtilTask.validateNullString(first );
+UtilTask.validateNullString(second );
 first.removeAll(second);
 return first;
 }
 
-public List<String>retainCommonElements(List<String> first, List<String> second) {
+public List<Object>retainCommonElements(List<Object> first, List<Object> second) throws CustomExceptions  {
+UtilTask.validateNullString(first );
+UtilTask.validateNullString(second );
 first.retainAll(second);
 return first;
 }
 
-public List<Long> addLong(List<Long> array, long value) {
-array.add(value);
-return array;
-}
-public List<Long> removeAllLongValues(List<Long> array) {
+public List<Object> removeAllLongValues(List<Object> array) throws CustomExceptions {
+UtilTask.validateNullString(array );
 array.clear();
 return array;
 }
 
-public boolean checkStringPresence(List<String> array, String str) {
+public boolean checkStringPresence(List<Object> array, String str) throws CustomExceptions {
+UtilTask.validateNullString(array );
+UtilTask.validateNullString(str);
 return array.contains(str);
 }
 }
