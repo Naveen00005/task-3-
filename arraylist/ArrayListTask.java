@@ -5,18 +5,11 @@ import java.util.List;
 
 public class ArrayListTask {
 
-public List<Object> addString (List<Object> array , Object str) throws CustomExceptions {
-UtilTask.validateNullString(array );
-UtilTask.validateNullString(str);
-array.add(str);
-return array;
-}
-
-public List<CustomObject> customObjectAdd (List<CustomObject> array ,  CustomObject customAdd) throws CustomExceptions {
-UtilTask.validateNullString(array );
-UtilTask.validateNullString(customAdd);
-array.add(customAdd);
-return array;
+public <T> List<T> addElement(List<T> list, T element) throws CustomExceptions {
+UtilTask.validateNullString(list);
+UtilTask.validateNullString(element);
+list.add(element);
+return list;
 }
 
 public int findIndex(List<Object> array, String searchString) throws CustomExceptions {
@@ -67,9 +60,9 @@ if (position >= 0 || position <= array.size()) {
 return array;
 }
 
-public List<Object> createArrayList(List<Object> array, int initial, int end) throws CustomExceptions{
+public List<Object> addInSecondArrayList(List<Object> array, int initial, int end) throws CustomExceptions{
 UtilTask.validateNullString(array );
-List<Object> secondArrayList = new ArrayList<>();
+List<Object> secondArrayList = UtilTask.createArrayList();
 for (int i=initial;i<=end;i++){
 secondArrayList.add(array.get(i));
 }
