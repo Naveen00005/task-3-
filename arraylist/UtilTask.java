@@ -11,15 +11,14 @@ public static void validateNullString(Object input)throws CustomExceptions {
   }
 }
 
-public static int findSize(List<?> arrayList)throws CustomExceptions{
+public static <T> int findSize(List<T> arrayList)throws CustomExceptions{
 validateNullString(arrayList);
 return arrayList.size();
 }
 
-public static List<Object> createArrayList(){
-List<Object> array = new ArrayList<Object>();
+public static <T> List<T> createArrayList(){
+List<T> array = new ArrayList<>();
 return array;
 }
-
 
 }
