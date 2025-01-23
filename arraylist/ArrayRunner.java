@@ -69,7 +69,7 @@ List<Object> intList = UtilTask.createArrayList();
 for (int i = 0; i < numIntegers; i++) {
  System.out.print("Enter Integer" + (i + 1) + "= ");
  int number = scanner.nextInt();
- intList = runner.addString (intList,number);
+ intList = runner.addElement (intList,number);
 }
 System.out.println("ArrayList contents: " + intList);
 System.out.println("Size of ArrayList: " + UtilTask.findSize(intList));
@@ -82,7 +82,7 @@ case 4:
 try{
 System.out.println("\nEnter the number of custom objects to add:");
 int numObjects = scanner.nextInt();scanner.nextLine();
-List<CustomObject> customList = new ArrayList<>();
+List<CustomObject> customList = UtilTask.createArrayList();
 for (int i = 0; i < numObjects; i++) {
  System.out.print("Enter name for object " + (i + 1) + ": ");
  String name = scanner.nextLine();
@@ -90,7 +90,7 @@ for (int i = 0; i < numObjects; i++) {
  int age = scanner.nextInt();
  scanner.nextLine();
  CustomObject custom = new CustomObject(name,age);
- customList=runner.customObjectAdd(customList,custom);
+ customList=runner.addElement(customList,custom);
 }
 System.out.println("CustomObject ArrayList contents: " + customList);
 System.out.println("Size of ArrayList: " + UtilTask.findSize(customList));
@@ -101,20 +101,20 @@ break;
 
 case 5:
 try{
-List<Object> dynamicList = new ArrayList<>();
+List<Object> dynamicList = UtilTask.createArrayList();
 System.out.println("\nEnter the number of integer to add:");
 int numInts = scanner.nextInt();scanner.nextLine();
 for(int i=0 ; i <  numInts ; i++){ 
  System.out.print("Enter Integer"+ (i+1) +"= " );
  int number = scanner.nextInt();
- dynamicList = runner.addString(dynamicList ,number);
+ dynamicList = runner.addElement(dynamicList ,number);
 }
 System.out.println("\nEnter the number of strings to add:");
 int numStringsDynamic = scanner.nextInt();scanner.nextLine();
 for(int i=0 ; i <  numStringsDynamic ; i++){ 
  System.out.print("Enter String"+ (i+1) +"= " );
  String string = scanner.nextLine();
- dynamicList = runner.addString(dynamicList ,string);
+ dynamicList = runner.addElement(dynamicList ,string);
 }
 System.out.println("Enter the number of custom objects to add:");
 int numCustomObjects = scanner.nextInt();scanner.nextLine();
@@ -124,7 +124,7 @@ for (int i = 0; i < numCustomObjects; i++) {
  System.out.print("Enter age for object " + (i + 1) + ": ");
  int age = scanner.nextInt();scanner.nextLine();
  CustomObject custom = new CustomObject(name,age);
- dynamicList = runner.addString(dynamicList,custom);
+ dynamicList = runner.addElement(dynamicList,custom);
 }
 
 System.out.println("ArrayList contents: " + dynamicList);
@@ -246,7 +246,7 @@ System.out.println("Enter the initial index position of strings to add in the se
 int initial = scanner.nextInt();scanner.nextLine();
 System.out.println("Enter the end index position of strings to add in the second ArrayList:");
 int end = scanner.nextInt();scanner.nextLine();
-List<Object> secondArrayList  = runner.createArrayList(firstArrayList , initial , end);
+List<Object> secondArrayList  = runner.addInSecondArrayList(firstArrayList , initial , end);
 System.out.println("Original ArrayList: " + firstArrayList );
 System.out.println("Substrings ArrayList: " + secondArrayList);
 } catch (Exception e) {
@@ -298,11 +298,11 @@ case 14:
 try{
 System.out.println("Enter the number  to add in the Decimal ArrayList:");
 int numStrings = scanner.nextInt();scanner.nextLine();
-List<Object> decimalList = new ArrayList<>();
+List<Object> decimalList = UtilTask.createArrayList();
 for (int i = 0; i < numStrings; i++) {
-System.out.print("Enter String " + (i + 1) + ": ");
+System.out.print("Enter Decimal " + (i + 1) + ": ");
 double str = scanner.nextDouble();
-decimalList = runner.addString (decimalList, str);
+decimalList = runner.addElement (decimalList, str);
 }
 System.out.println("Original Arraylist :" +decimalList);
 System.out.println("Enter the index position to remove in the decimal arraylist"); 
@@ -357,11 +357,11 @@ case 17:
 try{
 System.out.println("Enter the number of long values to add to the ArrayList: ");
 int numStrings = scanner.nextInt();scanner.nextLine();
-List<Object> longList = new ArrayList<>();
+List<Object> longList = UtilTask.createArrayList();
 for (int i = 0; i < numStrings ; i++) {
 System.out.print("Enter long value " + (i + 1) + ": ");
 long value = scanner.nextLong();
-longList = runner.addString (longList, value);
+longList = runner.addElement (longList, value);
 }
 System.out.println("ArrayList before removal: " + longList);
 List<Object> updatedList = runner.removeAllLongValues(longList);
@@ -407,7 +407,7 @@ ArrayListTask runner = new ArrayListTask();
 for(int i=0 ; i <  numbers ; i++){ 
  System.out.print("Enter String"+ (i+1) +"= " );
  String string = scanner.nextLine();
- arrayList = runner.addString(arrayList,string);
+ arrayList = runner.addElement(arrayList,string);
 }
 } catch (Exception e) {
 System.out.println("An error occurred in case: " + e.getMessage());
