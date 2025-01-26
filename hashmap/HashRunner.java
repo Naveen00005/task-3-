@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.List;
 import hashmapprograms.HashMapTask;
@@ -40,7 +41,7 @@ switch (choice)
 {
 case 1:
 try{
-HashMap<String,String> map = UtilTask.createHashMap();
+Map<String,String> map = UtilTask.createHashMap();
 System.out.println(" Printing the hashmap :" + map );
 System.out.println(" Size of the hashmap : " + UtilTask.findSize(map));
 } catch (Exception e) {
@@ -51,7 +52,7 @@ break;
 
 case 2:
 try{
-HashMap<String,String> map = UtilTask.createHashMap();
+Map<String,String> map = UtilTask.createHashMap();
 System.out.println("Enter the number of values to add ");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
@@ -65,7 +66,7 @@ break;
 
 case 3:
 try{
-HashMap<Integer,Integer> map = new HashMap<>();
+Map<Integer,Integer> map = UtilTask.createHashMap();
 System.out.println("Enter the number of values to add ");
 int number = scanner.nextInt();scanner.nextLine();
 for(int i=0 ; i <  number ; i++){ 
@@ -73,7 +74,7 @@ for(int i=0 ; i <  number ; i++){
  int key =scanner.nextInt();scanner.nextLine();
  System.out.print("Enter a values (Integer)"+ (i+1) +"= " );
  int value = scanner.nextInt();scanner.nextLine();
- map = runner.addTwoInteger(map,key,value);
+ map = runner.putMapElement(map,key,value);
 }
 System.out.println(" Printing the hashmap :" + map );
 System.out.println(" Size of the hashmap : " + map.size());
@@ -85,7 +86,7 @@ break;
 
 case 4:
 try{
-HashMap<String,Integer> map = new HashMap<>();
+Map<String,Integer> map = new HashMap<>();
 System.out.println("Enter the number of values to add ");
 int number = scanner.nextInt();scanner.nextLine();
 for(int i=0 ; i <  number ; i++){ 
@@ -93,7 +94,7 @@ for(int i=0 ; i <  number ; i++){
  String key = scanner.nextLine();
  System.out.print("Enter a values (Integer)"+ (i+1) +"= " );
  Integer value = scanner.nextInt();scanner.nextLine();
- map = runner.addStringInteger(map,key,value);
+ map = runner.putMapElement(map,key,value);
 }
 System.out.println(" Printing the hashmap :" + map );
 System.out.println(" Size of the hashmap : " +  map.size());
@@ -105,7 +106,7 @@ break;
 
 case 5:
 try{
-HashMap<String, CustomObject> map = new HashMap<>();
+Map<String, CustomObject> map = new HashMap<>();
 System.out.println("Enter the number of values to add ");
 int number = scanner.nextInt();scanner.nextLine();
 for (int i = 0; i < number; i++) {
@@ -116,7 +117,7 @@ for (int i = 0; i < number; i++) {
  System.out.print("Enter age for the Person: ");
  int age = scanner.nextInt();scanner.nextLine();
  CustomObject customObject = new CustomObject(name, age);
- map = runner.addCustomObject(map, key, customObject);
+ map = runner.putMapElement(map, key, customObject);
 }
 System.out.println(" Printing the hashmap :" + map );
 System.out.println(" Size of the hashmap : " +  map.size());
@@ -128,7 +129,7 @@ break;
 
 case 6:
 try{
-HashMap<String,String> map = UtilTask.createHashMap();
+Map<String,String> map = UtilTask.createHashMap();
 System.out.println("Enter the number of keys to add ");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
@@ -145,10 +146,11 @@ break;
 
 case 7:
 try{
-HashMap<String, String> map = UtilTask.createHashMap();
+Map<String, String> map = UtilTask.createHashMap();
+String key = null;
 System.out.print("Enter a value (String) for the null key: ");
 String value = scanner.nextLine();
-map = runner.addNullKey(map, value);
+map = runner.putMapElement(map, key , value);
 System.out.println(" Printing the hashmap :" + map );
 System.out.println(" Size of the hashmap : " +  UtilTask.findSize(map));
 } catch (Exception e) {
@@ -159,7 +161,7 @@ break;
 
 case 8:
 try{
-HashMap<String,String> map =UtilTask.createHashMap();
+Map<String,String> map =UtilTask.createHashMap();
 System.out.println("Enter the number of key-value pairs to add:");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
@@ -175,7 +177,7 @@ break;
 
 case 9:
 try{
-HashMap<String,String> map = UtilTask.createHashMap();
+Map<String,String> map = UtilTask.createHashMap();
 System.out.println("Enter the number of key-value pairs to add:");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
@@ -191,7 +193,7 @@ break;
 
 case 10:
 try{
-HashMap<String,String> map = UtilTask.createHashMap();
+Map<String,String> map = UtilTask.createHashMap();
 System.out.println("Enter the number of key-value pairs to add:");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
@@ -212,7 +214,7 @@ break;
 
 case 11:
 try{
-HashMap<String,String> map = UtilTask.createHashMap();
+Map<String,String> map = UtilTask.createHashMap();
 System.out.println("Enter the number of key-value pairs to add:");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
@@ -232,7 +234,7 @@ break;
 
 case 12:
 try{
-HashMap<String,String> map = UtilTask.createHashMap();
+Map<String,String> map = UtilTask.createHashMap();
 System.out.println("Enter the number of key-value pairs to add:");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
@@ -256,7 +258,7 @@ try{
 
 System.out.print("\nEnter a defaultvalue for non-existing key: ");
 String defaultValue = scanner.nextLine();
-HashMap<String,String> map = UtilTask.createHashMap();
+Map<String,String> map = UtilTask.createHashMap();
 System.out.println("Enter the number of key-value pairs to add:");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
@@ -278,7 +280,7 @@ break;
 
 case 14:
 try{
-HashMap<String,String> map = UtilTask.createHashMap();
+Map<String,String> map = UtilTask.createHashMap();
 System.out.println("Enter the number of key-value pairs to add:");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
@@ -302,7 +304,7 @@ break;
 
 case 15:
 try{
-HashMap<String,String> map = UtilTask.createHashMap();
+Map<String,String> map = UtilTask.createHashMap();
 System.out.println("Enter the number of key-value pairs to add:");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
@@ -323,7 +325,7 @@ break;
 
 case 16:
 try{
-HashMap<String,String> map = UtilTask.createHashMap();
+Map<String,String> map = UtilTask.createHashMap();
 System.out.println("Enter the number of key-value pairs to add:");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
@@ -349,7 +351,7 @@ break;
 
 case 17:
 try{
-HashMap<String,String> map = UtilTask.createHashMap();
+Map<String,String> map = UtilTask.createHashMap();
 System.out.println("Enter the number of key-value pairs to add:");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
@@ -372,11 +374,11 @@ break;
 
 case 18:
 try{
-HashMap<String,String> map = UtilTask.createHashMap();
+Map<String,String> map = UtilTask.createHashMap();
 System.out.println("Enter the number of key-value pairs to add:");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
-HashMap<String,String> map2 = UtilTask.createHashMap();
+Map<String,String> map2 = UtilTask.createHashMap();
 System.out.println("Enter the number of key-value pairs to add:");
 int numbers = scanner.nextInt();scanner.nextLine();
  map = getString(map2,numbers);
@@ -397,10 +399,9 @@ scanner.nextLine();
 }
 break;
 
-
 case 19:
 try{
-HashMap<String,String> map =UtilTask.createHashMap();
+Map<String,String> map =UtilTask.createHashMap();
 System.out.println("Enter the number of key-value pairs to add:");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
@@ -417,7 +418,7 @@ break;
 
 case 20:
 try{
-HashMap<String,String> map = UtilTask.createHashMap();
+Map<String,String> map = UtilTask.createHashMap();
 System.out.println("Enter the number of key-value pairs to add:");
 int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
@@ -447,14 +448,14 @@ scanner.close();
 }
 }
 
-public static HashMap<String, String> getString(HashMap<String, String> map, int number) {
+public static Map<String,String> getString(Map<String,String> map, int number) {
 try{
 for(int i=0 ; i <  number ; i++){ 
  System.out.print("Enter a key (String)"+ (i+1) +"= " );
  String key = scanner.nextLine();
  System.out.print("Enter a values (String)"+ (i+1) +"= " );
  String value = scanner.nextLine();
- map = HashMapTask.addTwoString(map,key,value);
+ map = HashMapTask.putMapElement(map,key,value);
 }
 } catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
@@ -463,6 +464,3 @@ return map;
 }
 
 }
-
-
-
