@@ -10,7 +10,7 @@ UtilTask.validateNullString(value);
 map.put(key, value);
 return map;
 }
- 
+
 public boolean checkKeyExists(Map<String, String> map, String key)  throws CustomExceptions {
 UtilTask.validateNullString(map);
 UtilTask.validateNullString(key);
@@ -18,6 +18,7 @@ return map.containsKey(key);
 }
 
 public boolean checkValueExists(Map<String, String> map, String value)   throws CustomExceptions{
+UtilTask.validateNullString(map);
 UtilTask.validateNullString(value);
 return map.containsValue(value);
 }
@@ -26,9 +27,7 @@ public Map<String, String> updateValues(Map<String, String> map, String key, Str
 UtilTask.validateNullString(map);
 UtilTask.validateNullString(key);
 UtilTask.validateNullString(newValue);
-if (map.containsKey(key)) {
  map.put(key, newValue);
-}
 return map;
 }
 
@@ -46,9 +45,7 @@ return map.getOrDefault(key, defaultValue);
 }
 
 public Map<String, String> removeKey(Map<String, String> map, String key) throws CustomExceptions {
-UtilTask.validateNullString(map);
-UtilTask.validateNullString(key);
-if (map.containsKey(key)) {
+if (checkKeyExists(map,key)) {
  map.remove(key);
 }
 return map;
@@ -63,21 +60,17 @@ return map;
 }
 
 public Map<String, String> replaceValue(Map<String, String> map, String key, String newValue) throws CustomExceptions {
-UtilTask.validateNullString(map);
-UtilTask.validateNullString(key);
 UtilTask.validateNullString(newValue);
-if (map.containsKey(key)) {
+if (checkKeyExists(map,key)) {
 map.replace(key, newValue);
 }
 return map;
 }
 
 public Map<String, String> replaceValueIfMatch(Map<String, String> map, String key, String oldValue, String newValue) throws CustomExceptions {
-UtilTask.validateNullString(map);
-UtilTask.validateNullString(key);
 UtilTask.validateNullString(oldValue);
 UtilTask.validateNullString(newValue);
-if (map.containsKey(key) && map.get(key).equals(oldValue)) {
+if (checkKeyExists(map,key) && map.get(key).equals(oldValue)) {
  map.replace(key, newValue);
 }
 return map;
@@ -89,6 +82,7 @@ map.putAll(map2);
 return map;
 }
 
+
 public String iterateAndCollect(Map<String, String> map)  throws CustomExceptions  {
 UtilTask.validateNullString(map);
 String val ="";
@@ -98,10 +92,12 @@ for (Map.Entry<String, String> entry : map.entrySet()) {
 return val;
 }
 
- public Map<String, String>  removeAll(Map<String, String> map)  throws CustomExceptions  {
+
+public Map<String, String>  removeAll(Map<String, String> map)  throws CustomExceptions  {
 UtilTask.validateNullString(map);
 map.clear();
 return map;
 }
+
 }
 
