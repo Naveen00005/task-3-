@@ -2,6 +2,7 @@ package hashmapprograms;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class UtilTask{
 
 public static void validateNullString(Object input)throws CustomExceptions {
@@ -9,6 +10,7 @@ public static void validateNullString(Object input)throws CustomExceptions {
             throw new CustomExceptions("Input cannot be null.");
         }
 }
+
 
 public static <K,V> int findSize(Map<K,V> hashmap) throws CustomExceptions  {
 validateNullString(hashmap); 
@@ -21,3 +23,4 @@ return map;
 }
 
 }
+
