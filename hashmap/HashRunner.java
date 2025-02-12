@@ -1,7 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.List;
 import hashmapprograms.HashMapTask;
 import hashmapprograms.CustomObject;
 import hashmapprograms.UtilTask;
@@ -9,6 +8,7 @@ import hashmapprograms.UtilTask;
 public class HashRunner{
 static Scanner scanner = new Scanner(System.in);
 public static void main(String args[]){
+HashMapTask hashTask = new HashMapTask();
 int choice;
 try{
 do{
@@ -73,7 +73,7 @@ for(int i=0 ; i <  number ; i++){
  int key =scanner.nextInt();scanner.nextLine();
  System.out.print("Enter a values (Integer)"+ (i+1) +"= " );
  int value = scanner.nextInt();scanner.nextLine();
- map = HashMapTask.putMapElement(map,key,value);
+ map = hashTask.putMapElement(map,key,value);
 }
 System.out.println(" Printing the hashmap :" + map );
 System.out.println(" Size of the hashmap : " + map.size());
@@ -93,7 +93,7 @@ for(int i=0 ; i <  number ; i++){
  String key = scanner.nextLine();
  System.out.print("Enter a values (Integer)"+ (i+1) +"= " );
  Integer value = scanner.nextInt();scanner.nextLine();
- map = HashMapTask.putMapElement(map,key,value);
+ map = hashTask.putMapElement(map,key,value);
 }
 System.out.println(" Printing the hashmap :" + map );
 System.out.println(" Size of the hashmap : " +  map.size());
@@ -116,7 +116,7 @@ for (int i = 0; i < number; i++) {
  System.out.print("Enter age for the Person: ");
  int age = scanner.nextInt();scanner.nextLine();
  CustomObject customObject = new CustomObject(name, age);
- map = HashMapTask.putMapElement(map, key, customObject);
+ map = hashTask.putMapElement(map, key, customObject);
 }
 System.out.println(" Printing the hashmap :" + map );
 System.out.println(" Size of the hashmap : " +  map.size());
@@ -149,7 +149,7 @@ Map<String, String> map = UtilTask.createHashMap();
 String key = null;
 System.out.print("Enter a value (String) for the null key: ");
 String value = scanner.nextLine();
-map = HashMapTask.putMapElement(map, key , value);
+map = hashTask.putMapElement(map, key , value);
 System.out.println(" Printing the hashmap :" + map );
 System.out.println(" Size of the hashmap : " +  UtilTask.findSize(map));
 } catch (Exception e) {
@@ -166,7 +166,7 @@ int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
 System.out.print("Enter the key to check: ");
 String keyToCheck = scanner.nextLine();
-boolean exists = HashMapTask.checkKeyExists(map, keyToCheck);
+boolean exists = hashTask.checkKeyExists(map, keyToCheck);
 System.out.print(" The Entered the key : "+exists);
 } catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
@@ -182,7 +182,7 @@ int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
 System.out.print("Enter the value to check: ");
 String valueToCheck = scanner.nextLine();
-boolean exists = HashMapTask.checkValueExists(map, valueToCheck);
+boolean exists = hashTask.checkValueExists(map, valueToCheck);
 System.out.print(" The Entered the value : "+exists);
 } catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
@@ -201,7 +201,7 @@ System.out.println("Size of HashMap before changes: " +  UtilTask.findSize(map))
 for (String key : map.keySet()) {
  System.out.print("Enter a new value for key \"" + key + "\": ");
  String newValue = scanner.nextLine();
- map = HashMapTask.putMapElement(map, key, newValue);
+ map = hashTask.putMapElement(map, key, newValue);
 }
 System.out.println("HashMap after changes: " + map);
 System.out.println("Size of HashMap after changes: " +  UtilTask.findSize(map));
@@ -220,7 +220,7 @@ int number = scanner.nextInt();scanner.nextLine();
 System.out.print("Enter the key to get its value: ");
 String keyToGet = scanner.nextLine();
 
-String value = HashMapTask.getValueByKey(map, keyToGet);
+String value = hashTask.getValueByKey(map, keyToGet);
 System.out.println(value);
 } catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
@@ -236,7 +236,7 @@ int number = scanner.nextInt();scanner.nextLine();
  map = getString(map,number);
 System.out.print("Enter the key to get its value (non-existing key): ");
 String keyToGet = scanner.nextLine();
- String value = HashMapTask.getValueByKey(map, keyToGet);
+ String value = hashTask.getValueByKey(map, keyToGet);
  System.out.println(value);
 } catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
@@ -258,7 +258,7 @@ String searchKey = scanner.nextLine();
 System.out.println("\nHashMap before retrieving non-existing key:");
 System.out.println("HashMap: " + map);
 System.out.println("Size of HashMap: " +  UtilTask.findSize(map));
-String value = HashMapTask.getDefaultValue(map, searchKey, defaultValue);
+String value = hashTask.getDefaultValue(map, searchKey, defaultValue);
 System.out.println("\nValue retrieved: " + value);
 System.out.println("\nHashMap after default value:");
 System.out.println("HashMap: " + map);
@@ -279,7 +279,7 @@ System.out.println("HashMap before removing key: " + map);
 System.out.println("Size of HashMap before removing key: " +  UtilTask.findSize(map));
 System.out.print("Enter the key to remove: ");
 String keyToRemove = scanner.nextLine();
-String result = HashMapTask.removeKey(map, keyToRemove);
+String result = hashTask.removeKey(map, keyToRemove);
  System.out.println(result);
 System.out.println("HashMap after removing key: " + map);
 System.out.println("Size of HashMap after removing key: " +  UtilTask.findSize(map));
@@ -301,7 +301,7 @@ System.out.print("Enter the key to remove: ");
 String keyToRemove = scanner.nextLine();
 System.out.print("Enter the value to match: ");
 String valueToMatch = scanner.nextLine();
-map = HashMapTask.removeKeyIfValueMatches(map, keyToRemove, valueToMatch);
+map = hashTask.removeKeyIfValueMatches(map, keyToRemove, valueToMatch);
 System.out.println("HashMap after conditional removal: " + map);
 System.out.println("Size of HashMap after conditional removal: " +  UtilTask.findSize(map));
 } catch (Exception e) {
@@ -322,7 +322,7 @@ System.out.print("Enter the key to replace its value: ");
 String keyToReplace = scanner.nextLine();
 System.out.print("Enter the new value: ");
 String newValue = scanner.nextLine();
-String result = HashMapTask.replaceValue(map, keyToReplace, newValue);
+String result = hashTask.replaceValue(map, keyToReplace, newValue);
 System.out.print(result);
 System.out.println("HashMap after replacement: " + map);
 System.out.println("Size of HashMap after replacement: " +  UtilTask.findSize(map));
@@ -346,7 +346,7 @@ System.out.print("Enter the value that must be matched to replace: ");
 String oldValue = scanner.nextLine();
 System.out.print("Enter the new value to replace with: ");
 String newValue = scanner.nextLine();
-map = HashMapTask.replaceValueIfMatch(map, keyToReplace, oldValue, newValue);
+map = hashTask.replaceValueIfMatch(map, keyToReplace, oldValue, newValue);
 System.out.println("HashMap after replacement: " + map);
 System.out.println("Size of HashMap after replacement: " +  UtilTask.findSize(map));
 } catch (Exception e) {
@@ -370,7 +370,7 @@ System.out.println("HashMap in map one : " + map);
 System.out.println("HashMap in map two : " + map2);
 System.out.println("HashMap in map one : " +  UtilTask.findSize(map));
 System.out.println("HashMap in map two : " +  UtilTask.findSize(map2));
-map = HashMapTask.transferMap(map,map2);
+map = hashTask.transferMap(map,map2);
 System.out.println(" After transfer " );
 System.out.println("HashMap in map one : " + map);
 System.out.println("HashMap in map two : " + map2);
@@ -391,8 +391,11 @@ int number = scanner.nextInt();scanner.nextLine();
 System.out.println("\nHashMap before iteration:");
 System.out.println("HashMap: " + map);
 System.out.println("Size of HashMap: " + UtilTask.findSize(map));
-String keyValuePairs = HashMapTask.iterateAndCollect(map);
-System.out.println("\nIterating over the HashMap:" +keyValuePairs);
+System.out.println("\nIterating over the HashMap:");
+
+for (Map.Entry<String, String> entry : map.entrySet()) {
+System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+}
 } catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
 scanner.nextLine();
@@ -408,7 +411,7 @@ int number = scanner.nextInt();scanner.nextLine();
 System.out.println(" Before remove ");
 System.out.println("HashMap in map one : " + map);
 System.out.println("HashMap in map one : " +  UtilTask.findSize(map));
-map = HashMapTask.removeAll(map);
+map = hashTask.removeAll(map);
 System.out.println(" After remove ");
 System.out.println("HashMap in map one : " + map);
 System.out.println("HashMap in map one : " +  UtilTask.findSize(map));
@@ -432,13 +435,14 @@ scanner.close();
 }
 
 public static Map<String,String> getString(Map<String,String> map, int number) {
+HashMapTask hashTask = new HashMapTask();
 try{
 for(int i=0 ; i <  number ; i++){ 
  System.out.print("Enter a key (String)"+ (i+1) +"= " );
  String key = scanner.nextLine();
  System.out.print("Enter a values (String)"+ (i+1) +"= " );
  String value = scanner.nextLine();
- map = HashMapTask.putMapElement(map,key,value);
+ map = hashTask.putMapElement(map,key,value);
 }
 } catch (Exception e) {
 System.out.println("An error occurred: " + e.getMessage());
